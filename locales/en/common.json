@@ -1,0 +1,15 @@
+{
+    "dark": "Dark theme",
+    "light": "Light theme",
+    "system": "Default system",
+    "not_found":"Ooops, Page Introuvable",
+    "not_found_element":"Ooops, Element Introuvable",
+    "element_not_found": "Nous n'avons pas pu trouver cet élement",
+    "not_found_message": "Nous n'avons pas pu trouver cette page, voulez vous retournez à la page d'acceuil ?",
+    "back_to_home":"Retourner à l'acceuil",
+    "choose": "Choose",
+    "error": "error",
+    "success": "Success",
+    "request_error": "Operation fail",
+    "bad_request": "An error occurred"
+}
