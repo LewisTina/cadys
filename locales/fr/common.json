@@ -1,0 +1,16 @@
+{
+    "dark": "Theme sombre",
+    "light": "Theme clair",
+    "system": "Defaut système",
+    "not_found":"Ooops, Page Introuvable",
+    "not_found_element":"Ooops, Element Introuvable",
+    "element_not_found": "Nous n'avons pas pu trouver cet élement",
+    "not_found_message": "Nous n'avons pas pu trouver cette page, voulez vous retournez à la page d'acceuil ?",
+    "back_to_home":"Retourner à l'acceuil",
+    "choose": "Choisir",
+    "error": "Erreur",
+    "success": "Opération réussie",
+    "upload_file": "Charger un ficher",
+    "request_error": "Echec de l'opération",
+    "bad_request": "Une erreur est survenue"
+}
