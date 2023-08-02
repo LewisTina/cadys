@@ -1,0 +1,32 @@
+.validationCode{
+    display: inline-flex;
+    width: 100%;
+    padding: 1em;
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      appearance: none;
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+  }
+  .validationCode .codeInput{
+    height: 3.5em !important;
+    width: 100%;
+    margin: 0.3em;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: #8D8D8D 3px solid;
+    transition: 0.2s;
+    text-align: center;
+    font-size: 1.2em;
+    border-radius: 0 !important;
+    
+  }
+
+  .codeInput:valid, .codeInput:hover{
+    border-bottom: rgb(var(--primary)) 3px solid;
+    transition: 0.2s;
+  }

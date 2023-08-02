@@ -12,5 +12,22 @@
     "success": "Opération réussie",
     "upload_file": "Charger un ficher",
     "request_error": "Echec de l'opération",
-    "bad_request": "Une erreur est survenue"
+    "bad_request": "Une erreur est survenue",
+
+    "join_our_team": "Rejoignez notre équipe de professionnels",
+    "daily_help": "Aide Au Quotidien",
+    "groceries": "Course / Repas",
+    "social_life": "Compagnie et vie sociale",
+    "night_assist": "Présence de nuit",
+    "household": "Ménage",
+    "uo_and_bed": "Lever/Coucher",
+
+    "create_account":"Créez votre compte partenaire",
+    "become_partner":"Devenez partenaire afin de proposer vos services",
+    "continue_with_google":"Continuer avec google",
+    "login_email":"Email de connexion",
+    "password":"Mot de passe",
+    "confirm_password":"Confirmer le mot de passe",
+    "accept_conditions":"J’accepte les conditions d’utilisation",
+    "continue":"Continuer"
 }
