@@ -18,7 +18,7 @@ function PresentationPuce(props: any){
     const {text} = props
 
     return (
-        <li className="bg-white/25 px-10 py-5 mr-6 mt-6 rounded-2xl backdrop-blur-2xl">
+        <li className="bg-white/25 px-10 py-5 mr-6 mb-6 rounded-2xl backdrop-blur-2xl">
             {(text)}
         </li>
     )
@@ -30,9 +30,27 @@ export default function PresentationPanel(props: panelProps){
     return(
         <div 
             style={{backgroundImage: `url(${img}`}} 
-            className={`${style.presentation} ${dm_Serif_Display.className} text-white bg-no-repeat bg-cover bg-center p-20 relative h-full flex flex-col justify-end`}>
+            className={`
+                ${style.presentation} ${dm_Serif_Display.className} 
+                text-white 
+                bg-no-repeat 
+                bg-cover 
+                bg-center lg:bg-top
+                p-20 lg:p-10
+                relative 
+                h-full 
+                w-1/2 lg:w-full
+                flex flex-col justify-end
+                overflow-hidden
+                `}>
 
-                <ul className={`${style.top} list-none text-base z-10 flex flex-wrap max-w-lg`}>
+                <ul className={`
+                        ${style.top} 
+                        list-none text-base z-10 
+                        flex flex-wrap 
+                        max-w-lg
+                        lg:max-w-full
+                        `}>
                     {
                         options?.map((option: string, idx: number) => {
                             return(
@@ -42,7 +60,12 @@ export default function PresentationPanel(props: panelProps){
                     }
                 </ul>
 
-                <div className={`${style.bottom} flex justify-between items-end z-10 pt-10`}>
+                <div className={`
+                    ${style.bottom} 
+                    flex 
+                    justify-between items-end 
+                    z-10 
+                    pt-6`}>
                     <div className={`${style.title}`}>
                         <h1>
                             {t(title)}

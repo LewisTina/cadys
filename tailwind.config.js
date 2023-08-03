@@ -8,23 +8,17 @@ module.exports = {
   darkMode: 'class',
   theme: {
     
-    /* 
-    fontSize: {
-      '4xl': '4rem',
-    },
+    screens: {
+      '2xl': {'max': '1535px'},
 
-    borderRadius: {
-      'xl': '10px',
-      '3xl': '20px',
-    },
+      'xl': {'max': '1279px'},
 
-    width: {
-      '86': '345px',
-    },
+      'lg': {'max': '1023px'},
 
-    boxShadow: {
-      'flat': '0px 8px 18px 0px rgba(0, 0, 0, 0.08)'
-    }, */
+      'md': {'max': '767px'},
+
+      'sm': {'max': '639px'},
+    },
 
     extend: {
       backgroundImage: {

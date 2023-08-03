@@ -29,5 +29,21 @@
     "password":"Mot de passe",
     "confirm_password":"Confirmer le mot de passe",
     "accept_conditions":"J’accepte les conditions d’utilisation",
-    "continue":"Continuer"
+    "continue":"Continuer",
+    "already_user":"Déjà utilisateur?",
+    
+    "confirm_email":"Confirmer l’adresse mail",
+    "an_email_was_send":"Un email de confirmation vous a été envoyé",
+    "resend_code":"Renvoyer le code",
+
+    "enter_brand_data":"Entrez les informations de votre entreprise",
+    "brand_data_left":"Il vous reste juste à entrer les informations de votre entreprise",
+    "email_pro":"Email professionel",
+    "brand_status":"Statut juridique",
+    "brand_name":"Nom de l’entreprise",
+    "siret_siren":"SIRET/SIREN",
+    "activities":"Secteurs d’activité",
+    "postal_code":"Code postal",
+    "town":"Ville",
+    "address":"Adresse"
 }
