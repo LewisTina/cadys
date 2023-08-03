@@ -30,6 +30,7 @@
     "confirm_password":"Confirmer le mot de passe",
     "accept_conditions":"J’accepte les conditions d’utilisation",
     "continue":"Continuer",
+    "finish":"Terminer",
     "already_user":"Déjà utilisateur?",
     
     "confirm_email":"Confirmer l’adresse mail",
@@ -39,11 +40,26 @@
     "enter_brand_data":"Entrez les informations de votre entreprise",
     "brand_data_left":"Il vous reste juste à entrer les informations de votre entreprise",
     "email_pro":"Email professionel",
+    "email_address":"Adresse mail",
     "brand_status":"Statut juridique",
     "brand_name":"Nom de l’entreprise",
     "siret_siren":"SIRET/SIREN",
     "activities":"Secteurs d’activité",
     "postal_code":"Code postal",
     "town":"Ville",
-    "address":"Adresse"
+    "address":"Adresse",
+
+    "get_quotation":"Obtenez un devis",
+    "request_quotation":"Demandez une intervention / chiffrage",
+    "urgent_request":"Intervention d’urgence",
+    "urgent_request_description":"Votre demande sera traitée en priorité par nos conseillés afin de vous programmer un rendez-vous dans les meilleurs délais.",
+    "simple_request":"Demande de devis",
+    "simple_request_description":"Vos informations seront étudiées afin de trouver les meilleures tarifs fonction de votre besoin et de la disponibilité des agents.",
+
+    "step_1": "Etape 1",
+    "step_1_text": "Où & Quand ?",
+    "step_2": "Etape 2",
+    "step_2_text": "Que souhaitez vous ?",
+    "step_3": "Etape 3",
+    "step_3_text": "Niveau d’urgence"
 }

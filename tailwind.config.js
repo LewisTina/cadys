@@ -30,6 +30,7 @@ module.exports = {
       colors: {
         'darkest': "rgb(29, 27, 27)",
         'primary': 'rgb(50, 205, 50)',
+        'deep-green': 'rgba(45, 160, 44)',
         'primary-dark': 'rgb(34, 71, 33)',
         'dark-grey': 'rgb(82, 82, 82)',
         'light-grey': 'rgb(243, 243, 243)',
