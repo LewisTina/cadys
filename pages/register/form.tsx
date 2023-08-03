@@ -6,6 +6,10 @@ import FormButton from '@/src/components/Form/FormButton';
 import ValidationInput from '@/src/components/Form/ValidationInput';
 import useTranslation from 'next-translate/useTranslation';
 import { useRouter } from 'next/router';
+import FormSelect from '@/src/components/Form/FormSelect';
+import compagnieTypes from '@/company_type.json'
+import FormMultiSelect from '@/src/components/Form/FormMultiSelect';
+import AutoCompletePostal from '@/src/components/Form/PostalInput';
 
 interface RegisterFormProps {
     step: any,
@@ -20,7 +24,8 @@ export default function RegisterForm(props: RegisterFormProps){
         register, 
         handleSubmit, 
         getValues, 
-        setValue, 
+        setValue,
+        trigger, 
         reset,
         unregister,
         formState: {errors}
@@ -55,13 +60,6 @@ export default function RegisterForm(props: RegisterFormProps){
                 name={'confirm_password'} 
                 icon={'lock'} 
                 placeholder={'confirm_password'}/>
-
-            {
-                /* !!errors &&
-                <div className="">
-                    {t('please_fill_red_input')}
-                </div> */
-            }
 
             <FormButton 
                 action={() =>{setStep(step + 1)}}
@@ -111,12 +109,15 @@ export default function RegisterForm(props: RegisterFormProps){
                 icon={'email'} 
                 placeholder={'email_pro'}/>
 
-            <FormInputField 
+            <FormSelect 
                 controller={register}
+                values={compagnieTypes}
                 require={errors}
-                name={'status'} 
-                icon={'business_center'} 
-                placeholder={'brand_status'}/>
+                name={'status'}
+                icon={'business_center'}
+                placeholder={'brand_status'} 
+                setValue={setValue}
+                trigger={trigger}/>
 
             <FormInputField 
                 controller={register}
@@ -132,12 +133,31 @@ export default function RegisterForm(props: RegisterFormProps){
                 icon={'alternate_email'} 
                 placeholder={'siret_siren'}/>
 
+            <FormMultiSelect 
+                controller={register}
+                unregister={unregister}
+                values={compagnieTypes}
+                name={'activities'}
+                placeholder={'activities'} 
+                setValue={setValue}
+                trigger={trigger}/>
+
+            <AutoCompletePostal 
+                controller={register}
+                require={errors}
+                name={'zip_code'}
+                icon={'my_location'}
+                placeholder={'postal_code'} 
+                townController={'town'} 
+                setValue={setValue} 
+                trigger={trigger}/>
+
             <FormInputField 
                 controller={register}
                 require={errors}
-                name={'postal_code'} 
-                icon={'my_location'} 
-                placeholder={'postal_code'}/>
+                name={'town'} 
+                icon={'location_city'} 
+                placeholder={'town'}/>
 
             <FormInputField 
                 controller={register}
@@ -148,12 +168,23 @@ export default function RegisterForm(props: RegisterFormProps){
             
             <FormButton 
                 name={'finish'}
-                type={"button"} />
+                type={"submit"} />
         </form>,
     ]
     
     return(
         <>
+            {
+                /* !!errors &&
+                <div className="pl-2 flex items-center text-light-red bg-light-red/10 border-2 border-light-red rounded-md overflow-hidden">
+                    <span 
+                    className={`material-icons-outlined cursor-pointer text-sm px-1 mr-2 hover:bg-white`}
+                    >
+                    {"warning"}
+                </span>
+                    {t('please_fill_red_input')}
+                </div> */
+            }
             {fieldGroups[step]}
         </>
     )

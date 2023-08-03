@@ -18,8 +18,23 @@ export default function Register(props: any) {
     ]
     
     return(
-        <main className='flex h-screen max-h-screen w-screen items-center'>
-            <div className={`${styles.action} flex flex-col items-center justify-evenly overflow-auto`}>
+        <main 
+            className='
+                flex 
+                lg:flex-col
+                items-center
+                h-screen lg:h-auto lg:min-h-screen
+                max-h-screen lg:max-h-none
+                w-full'>
+            <div 
+                className={`${styles.action} 
+                    flex flex-col 
+                    items-center justify-center 
+                    overflow-auto
+                    lg:p-10
+                    h-full 
+                    w-1/2 lg:w-full md:w-96 sm:w-96 
+                    `}>
                 <div className="m-4 flex-col flex">
                     <div className={`${styles.logo}  w-[345px]`}>
                         <Image 

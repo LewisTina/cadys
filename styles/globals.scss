@@ -30,6 +30,13 @@ button, input{
   transition: all 0.5s;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+}
+
   /* custom scrollbar */
   ::-webkit-scrollbar {
     width: 1em;
