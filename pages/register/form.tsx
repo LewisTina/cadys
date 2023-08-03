@@ -174,17 +174,6 @@ export default function RegisterForm(props: RegisterFormProps){
     
     return(
         <>
-            {
-                /* !!errors &&
-                <div className="pl-2 flex items-center text-light-red bg-light-red/10 border-2 border-light-red rounded-md overflow-hidden">
-                    <span 
-                    className={`material-icons-outlined cursor-pointer text-sm px-1 mr-2 hover:bg-white`}
-                    >
-                    {"warning"}
-                </span>
-                    {t('please_fill_red_input')}
-                </div> */
-            }
             {fieldGroups[step]}
         </>
     )

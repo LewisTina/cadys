@@ -37,6 +37,28 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+
+@font-face {
+  font-family: 'LemonMilk';
+  src: url('/lemon-milk/LEMONMILK-REGULAR.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LemonMilk';
+  src: url('/lemon-milk/LEMONMILK-BOLD.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LemonMilk';
+  src: url('/lemon-milk/LEMONMILK-LIGHT.otf') format('opentype');
+  font-weight: lighter;
+  font-style: normal;
+}
+
   /* custom scrollbar */
   ::-webkit-scrollbar {
     width: 1em;
