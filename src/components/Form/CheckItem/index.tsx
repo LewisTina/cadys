@@ -9,7 +9,7 @@ const dm_Serif_Display = DM_Serif_Display({
 
 
 export default function CheckItem(props: any){
-    const {text, imgUrl, action} = props
+    const {text, imgUrl, action, clickable} = props
     const [checked, setChecked] = useState(false)
 
     return (
@@ -22,7 +22,7 @@ export default function CheckItem(props: any){
                 flex
                 items-center
                 cursor-pointer 
-                p-2 pr-4 mr-4 mb-6 
+                p-2 pr-4 mr-4 mb-4 
                 transition
                 duration-500
                 rounded-3xl`}>

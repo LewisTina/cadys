@@ -3,12 +3,8 @@
 import { useForm } from 'react-hook-form'
 import FormInputField from '@/src/components/Form/FormInputField'
 import FormButton from '@/src/components/Form/FormButton';
-import ValidationInput from '@/src/components/Form/ValidationInput';
 import useTranslation from 'next-translate/useTranslation';
 import { useRouter } from 'next/router';
-import FormSelect from '@/src/components/Form/FormSelect';
-import compagnieTypes from '@/company_type.json'
-import FormMultiSelect from '@/src/components/Form/FormMultiSelect';
 import AutoCompletePostal from '@/src/components/Form/PostalInput';
 import CheckItem from '@/src/components/Form/CheckItem';
 import CheckIBoxDescribed from '@/src/components/Form/CheckBoxDescribed';

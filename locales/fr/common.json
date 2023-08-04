@@ -61,5 +61,12 @@
     "step_2": "Etape 2",
     "step_2_text": "Que souhaitez vous ?",
     "step_3": "Etape 3",
-    "step_3_text": "Niveau d’urgence"
+    "step_3_text": "Niveau d’urgence",
+
+    "intro_part_1": "Nous vous",
+    "intro_part_2": "accompagnons",
+    "intro_part_3": "au quotidien",
+    "intro_subtext": "Nous vous offrons des services 7j/7 24H/24 selon vos besoins et à votre rythme.",
+    "make_an_appointment": "Prendre RDV",
+    "partner": "Devenir Partenaire"
 }
