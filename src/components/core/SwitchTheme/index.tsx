@@ -1,5 +1,3 @@
-"use client"
-
 import React, { useContext, useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import useTranslation from "next-translate/useTranslation";
@@ -60,7 +58,7 @@ export default function SwitchTheme() {
 
       {
         isOpen &&
-        <div className={`absolute right-0 z-10 mt-5 w-48 origin-top-right rounded-md bg-white/20 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${style.menuButton}`} role="menu" aria-orientation="vertical" aria-labelledby="menu-button">
+        <div className={`absolute right-0 z-10 mt-5 w-48 origin-top-right rounded-md bg-white dark:bg-black shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${style.menuButton}`} role="menu" aria-orientation="vertical" aria-labelledby="menu-button">
           <div className="py-1" role="none">
             <button 
               className="text-gray-700 dark:text-white hover:dark:bg-white/20 hover:bg-gray-100 flex w-full items-center px-4 py-2 text-sm " 

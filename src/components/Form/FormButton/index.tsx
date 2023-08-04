@@ -7,11 +7,12 @@ interface buttonProps {
     isSecondary?: boolean
     isStepButton?: boolean
     action?: any
+    autoSize?: any
 }
 
 export default function FormButton(props: buttonProps){
     const {t} = useTranslation("common")
-    const {name, type, isSecondary, isStepButton, action} = props
+    const {name, type, isSecondary, isStepButton, action, autoSize} = props
     return(
         <button 
             type={type}
@@ -24,20 +25,23 @@ export default function FormButton(props: buttonProps){
                     "justify-between" :
                     "justify-center"
                 }
-                w-[345px]
-                rounded-[24px]
-                py-3 px-4 my-2.5
-                bg-primary
-                text-white
+                ${
+                    autoSize ?
+                    "w-auto" : 
+                    "w-[345px]"
+                }
+                rounded-full
+                py-2 px-8 my-2.5
+                ${
+                    isSecondary ?
+                    "bg-transparent border-2 border-primary text-primary" :
+                    "text-white bg-primary"
+                }
                 font-bold
                 capitalize
                 shadow-flat 
                 hover:dark:shadow-primary/20
                 hover:shadow-primary/50
-                ${
-                    isSecondary &&
-                    "bg-white border-2 border-primary text-primary"
-                }
             `}>
             {t(name)}
             
