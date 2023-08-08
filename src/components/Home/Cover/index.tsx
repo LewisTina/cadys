@@ -5,6 +5,7 @@ import { useState } from 'react'
 import CheckItem from '../../Form/CheckItem'
 import Link from 'next/link'
 import style from './index.module.scss'
+
 const options = ["daily_help", "household", "uo_and_bed", "social_life", "night_assist", "groceries"]
 
 const dm_Serif_Display = DM_Serif_Display({
@@ -19,16 +20,19 @@ export default function Cover(props: any){
         <div 
             style={{backgroundImage: 'url(/EllipseCover.svg)'}} 
             className="
-                min-h-screen
+                h-screen
+                max-h-[982px]
                 w-full
+                max-w-[1535px]
                 flex 
                 justify-center
                 items-center
+                bg-contain
                 bg-no-repeat 
                 bg-right
             ">
 
-                <div className="w-1/2 max-w-[767px] pl-16 pr-10 py-32">
+                <div className="w-1/2 px-12 py-32">
                     <h1 className={`${dm_Serif_Display.className} text-7xl`}>
                         <span className="text-dark-grey">
                             {t("intro_part_1")}
@@ -63,7 +67,7 @@ export default function Cover(props: any){
                     </p>
                 </div>
 
-                <div className="w-1/2 max-w-[767px] p-10 flex justify-between items-center">
+                <div className="w-1/2 p-10 flex justify-between items-center">
                     <div className="flex items-center w-11/12 relative">
                         <div className="relative w-1/2 p-4 flex flex-col items-end">
                             <div className={`w-full my-4 relative rounded-[1.25rem] overflow-hidden aspect-[1/0.7] border-2 border-light-grey`}>

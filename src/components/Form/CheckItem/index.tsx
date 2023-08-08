@@ -14,7 +14,7 @@ export default function CheckItem(props: any){
 
     return (
         <li 
-            onClick={() => {setChecked(!checked), action}}
+            onClick={() => {clickable && (setChecked(!checked), action)}}
             className={` 
                 ${dm_Serif_Display.className} 
                 ${checked ? "bg-primary/25" : "bg-white dark:bg-darkest"}
