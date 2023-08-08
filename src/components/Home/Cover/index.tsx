@@ -20,20 +20,25 @@ export default function Cover(props: any){
         <div 
             style={{backgroundImage: 'url(/EllipseCover.svg)'}} 
             className="
-                h-screen
-                max-h-[982px]
+                h-screen xl:h-auto
+                max-h-[820px] lg:max-h-none
                 w-full
                 max-w-[1535px]
-                flex 
-                justify-center
-                items-center
-                bg-contain
+                flex lg:flex-col
+                justify-center lg:justify-start
+                items-center sm:items-start
+                bg-contain sm:bg-cover
                 bg-no-repeat 
-                bg-right
+                bg-right sm:bg-center lg:bg-bottom
             ">
 
-                <div className="w-1/2 px-12 py-32">
-                    <h1 className={`${dm_Serif_Display.className} text-7xl`}>
+                <div 
+                    className="
+                        w-1/2 lg:w-full
+                        px-12 py-32 sm:px-4 lg:py-4
+                        lg:mt-24
+                        ">
+                    <h1 className={`${dm_Serif_Display.className} text-7xl md:text-5xl`}>
                         <span className="text-dark-grey">
                             {t("intro_part_1")}
                         </span> <br />
@@ -46,7 +51,7 @@ export default function Cover(props: any){
                     </h1>
 
                     <ul className={`
-                        list-none text-base z-10 
+                        list-none text-base
                         flex flex-wrap 
                         py-8
                         `}>
@@ -67,14 +72,31 @@ export default function Cover(props: any){
                     </p>
                 </div>
 
-                <div className="w-1/2 p-10 flex justify-between items-center">
-                    <div className="flex items-center w-11/12 relative">
-                        <div className="relative w-1/2 p-4 flex flex-col items-end">
+                <div 
+                    className="
+                        w-1/2 lg:w-full
+                        p-10 sm:p-4
+                        flex sm:flex-col
+                        justify-between items-center">
+
+                    <div 
+                        className="
+                            flex sm:flex-col 
+                            items-center 
+                            w-full sm:w-full
+                            relative">
+
+                        <div 
+                            className="
+                                relative 
+                                w-1/2 sm:w-full
+                                p-4 flex flex-col 
+                                items-end sm:items-center">
                             <div className={`w-full my-4 relative rounded-[1.25rem] overflow-hidden aspect-[1/0.7] border-2 border-light-grey`}>
                                 <Image
                                 alt='object'
                                 fill={true}
-                                objectFit='cover'
+                                className='object-cover'
                                 src={"/gros-plan-mains-soutien.jpg"}
                                 />
                             </div>
@@ -83,18 +105,23 @@ export default function Cover(props: any){
                                 <Image
                                 alt='object'
                                 fill={true}
-                                objectFit='cover'
+                                className='object-cover'
                                 src={"/smiley-homme-femme-coup-moyen.jpg"}
                                 />
                             </div>
                         </div>
 
-                        <div className="relative w-1/2 p-4 flex flex-col items-start">
+                        <div 
+                            className="
+                                relative 
+                                w-1/2 sm:w-full
+                                 p-4 flex flex-col
+                                items-start  sm:items-center">
                             <div className={`w-full my-4 relative rounded-[1.25rem] overflow-hidden aspect-[1/0.7] border-2 border-light-grey`}>
                                 <Image
                                 alt='object'
                                 fill={true}
-                                objectFit='cover'
+                                className='object-cover'
                                 src={"/travailleur-social-prenant-soin-femme-ainee.jpg"}
                                 />
                             </div>
@@ -103,7 +130,7 @@ export default function Cover(props: any){
                                 <Image
                                 alt='object'
                                 fill={true}
-                                objectFit='cover'
+                                className='object-cover'
                                 src={"/personne-aidant-son-voisin-aine.jpg"}
                                 />
                             </div>
@@ -111,26 +138,29 @@ export default function Cover(props: any){
                         
                     </div>
 
-                    <div className="flex flex-col items-center text-2xl text-dark-grey/50 dark:text-white/50">
+                    <div 
+                        className="
+                            flex flex-col sm:flex-row
+                            items-center text-2xl text-dark-grey/50 dark:text-white/50">
                         
                         <Link href="https://www.facebook.com/">
-                            <i className="my-4 fa fa-facebook hover:text-primary transition"></i>
+                            <i className="my-4 sm:mx-4 fa fa-facebook hover:text-primary transition"></i>
                         </Link>
                         
                         <Link href="https://www.instagram.com/">
-                            <i className="my-4 fa fa-instagram hover:text-primary transition"></i>
+                            <i className="my-4 sm:mx-4 fa fa-instagram hover:text-primary transition"></i>
                         </Link>
 
                         <Link href="https://twitter.com/">
-                            <i className="my-4 fa fa-twitter hover:text-primary transition"></i>
+                            <i className="my-4 sm:mx-4 fa fa-twitter hover:text-primary transition"></i>
                         </Link>
                         
                         <Link href="https://www.whatsapp.com/">
-                            <i className="my-4 fa fa-whatsapp hover:text-primary transition"></i>
+                            <i className="my-4 sm:mx-4 fa fa-whatsapp hover:text-primary transition"></i>
                         </Link>
 
                         <Link href="https://www.snapchat.com/add/">
-                            <i className="my-4 fa fa-snapchat hover:text-primary transition"></i>
+                            <i className="my-4 sm:mx-4 fa fa-snapchat hover:text-primary transition"></i>
                         </Link>
                     </div>
                 </div>

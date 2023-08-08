@@ -11,7 +11,7 @@ export default function TrustSection(props: any){
     const {t} = useTranslation('common')
 
     return(
-        <section className="w-full p-10 flex justify-center">
+        <section className="w-full p-10 md:p-0 lg:p-5 flex justify-center">
             <div 
                 className="
                     w-full
@@ -22,9 +22,17 @@ export default function TrustSection(props: any){
                         {t('trust_us')}
                     </h1>
 
-                    <div className="flex p-10 justify-center items-center">
+                    <div 
+                        className="
+                            flex sm:flex-col
+                            p-10 md:py-4 xl:px-0
+                            justify-center items-center">
 
-                        <div className="w-1/2 max-w-[627px] flex flex-col">
+                        <div 
+                            className="
+                                w-1/2 sm:w-full
+                                max-w-[627px] 
+                                flex flex-col">
                             <div className="p-2 m-3 bg-primary/25 rounded-xl">
                                 <div className="p-8">
                                     <span className={`${dm_Serif_Display.className} font-bold text-primary text-4xl block`}>
@@ -55,7 +63,11 @@ export default function TrustSection(props: any){
                             </div>
                         </div>
 
-                        <div className="w-1/2 max-w-[627px] flex flex-col">
+                        <div 
+                            className="
+                                w-1/2 sm:w-full
+                                max-w-[627px] 
+                                flex flex-col">
                             <div className="p-2 m-3 bg-light-grey dark:bg-black rounded-xl">
                                 <div className="p-8">
                                     <span className={`${dm_Serif_Display.className} font-bold text-primary text-4xl block`}>

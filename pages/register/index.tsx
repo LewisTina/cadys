@@ -71,7 +71,7 @@ export default function Register(props: any) {
             <PresentationPanel 
                 options={["daily_help", "groceries", "social_life", "night_assist", "household", "uo_and_bed",]}
                 title={'join_our_team'} 
-                img={'infirmiere-prenant-soin-personne-agee.jpg'}/>
+                img={'/infirmiere-prenant-soin-personne-agee.jpg'}/>
                 
         </main>
     )

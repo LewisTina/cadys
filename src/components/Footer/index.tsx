@@ -28,10 +28,10 @@ export default function Footer(props: any){
                         className={`
                             absolute
                             top-0
-                            w-[calc(90%-6rem)]
+                            w-[calc(90%-6rem)] sm:w-[calc(100%-6rem)] lg:w-[calc(98%-6rem)]
                             px-5
                             py-20
-                            h-full
+                            h-auto
                             rounded-xl
                             bg-primary/10
                             transition
@@ -42,7 +42,7 @@ export default function Footer(props: any){
                     <div 
                         className={`
                             absolute
-                            w-[calc(90%-3rem)]
+                            w-[calc(90%-3rem)] sm:w-[calc(100%-3rem)] lg:w-[calc(98%-3rem)]
                             px-5
                             py-20
                             h-full
@@ -57,12 +57,14 @@ export default function Footer(props: any){
                     <div 
                         className={`
                             absolute
-                            w-[90%]
-                            flex
+                            w-[90%] sm:w-full lg:w-[98%]
+                            backdrop-blur-lg
+                            flex md:flex-col-reverse
                             justify-between
-                            items-center
+                            items-center md:items-start
                             p-10
                             shadow-[0px_0px_20px_8px_rgba(0,0,0,0.15)] dark:shadow-[0px_0px_20px_8px_rgba(0,0,0,0.5)]
+                            sm:shadow-black/5
                             rounded-t-xl
                             bg-white/90 dark:bg-darkest
                             top-8
@@ -83,10 +85,13 @@ export default function Footer(props: any){
                                 </div>
 
 
-                                <div className="flex items-start">
-                                    <div className="block mx-10">
+                                <div 
+                                    className="
+                                        flex sm:flex-col
+                                        items-start">
+                                    <div className="block mr-16 sm:mr-0 mb-8">
                                         <span className="font-bold">
-                                            {t('legal_mention')}
+                                            {t('legal_mentions')}
                                         </span>
 
                                         <span className="block">
@@ -102,9 +107,9 @@ export default function Footer(props: any){
                                         </span>
                                     </div>
 
-                                    <div className="block mx-10">
+                                    <div className="block mb-8">
                                         <span className="font-bold">
-                                            {t('useful_link')}
+                                            {t('useful_links')}
                                         </span>
 
                                         <span className="block">

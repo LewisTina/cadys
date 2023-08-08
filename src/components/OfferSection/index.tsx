@@ -36,22 +36,30 @@ export default function OfferSection(props: any){
     }
 
     return(
-        <section className="w-full p-10 flex justify-center bg-light-grey dark:bg-black">
+        <section 
+            className="
+                w-full 
+                p-10 sm:p-4
+                flex justify-center bg-light-grey dark:bg-black">
             <div 
                 className="
                     w-full
-                    px-16
+                    px-16 xl:px-0
                     max-w-[1535px]
                 ">
 
-                    <div className="flex items-end justify-between">
-                        <div className="">
-                            <h1 className="text-4xl font-bold w-3/5">
+                    <div 
+                        className="
+                            flex sm:flex-col
+                            items-end sm:items-start
+                            justify-between">
+                        <div className="w-3/5 sm:w-full">
+                            <h1 className="text-5xl md:text-3xl lg:text-4xl font-bold">
                                 {t('offer_title')}
                             </h1>
                         </div>
 
-                        <div className="">
+                        <div className="sm:mt-8">
                             <FormButton
                                 action={()=>{router.push("/quotation")}} 
                                 autoSize={true} 
@@ -64,14 +72,17 @@ export default function OfferSection(props: any){
                         </div>
                     </div>
 
-                    <div className="py-8 w-4/5">
+                    <div className="py-8 w-4/5 lg:w-full">
                         <p className="">
                             {t('offer_description')}
                         </p>
                     </div>
 
-                    <div className="flex justify-center">
-                        <div className="rounded-[2rem] bg-white dark:bg-darkest p-4 mx-5">
+                    <div 
+                        className="
+                            flex sm:flex-col lg:flex-wrap
+                            justify-center lg:justify-start">
+                        <div className="rounded-[2rem] bg-white dark:bg-darkest lg:max-w-[calc(50%-1rem)] p-4 lg:my-2 mx-2 md:mx-0 md:my-2">
                             <div className="rounded-2xl bg-light-grey dark:bg-black p-4 flex flex-col items-center">
                                     <Image 
                                         src={'/11.svg'} 
@@ -95,7 +106,7 @@ export default function OfferSection(props: any){
                                 
                             </div>
                         </div>
-                        <div className="rounded-[2rem] bg-white dark:bg-darkest p-4 mx-5">
+                        <div className="rounded-[2rem] bg-white dark:bg-darkest lg:max-w-[calc(50%-1rem)] p-4 lg:my-2 mx-2 md:mx-0 md:my-2">
                             <div className="rounded-2xl bg-light-grey dark:bg-black p-4 flex flex-col items-center">
                                     <Image 
                                         src={'/10.svg'} 
@@ -119,7 +130,7 @@ export default function OfferSection(props: any){
                                 
                             </div>
                         </div>
-                        <div className="rounded-[2rem] bg-white dark:bg-darkest p-4 mx-5">
+                        <div className="rounded-[2rem] bg-white dark:bg-darkest lg:max-w-[calc(50%-1rem)] p-4 lg:my-2 mx-2 md:mx-0 md:my-2">
                             <div className="rounded-2xl bg-light-grey dark:bg-black p-4 flex flex-col items-center">
                                     <Image 
                                         src={'/9.svg'} 
