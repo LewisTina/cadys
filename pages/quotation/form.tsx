@@ -96,6 +96,7 @@ export default function QuotationForm(props: QuotationFormProps){
                                 <CheckItem 
                                     key={idx} 
                                     text={t(option)} 
+                                    clickable={true}
                                     imgUrl={`/${idx + 1}.svg`}
                                     unregister={unregister} 
                                     setValue={setValue}/>
