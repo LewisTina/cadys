@@ -3,11 +3,11 @@ export const LocationsTown = ["Grand Lyon", "Saint-Etienne", "Vienne", "Vénissi
 export default function Locations(props: any){
 
     return(
-        <section className="w-full p-10 my-20 flex justify-center bg-light-grey dark:bg-black">
+        <section className="w-full p-10 sm:p-4 my-20 flex justify-center bg-light-grey dark:bg-black">
             <div 
                 className="
                     w-full
-                    px-16
+                    px-16 xl:px-0
                     max-w-[1535px]
                 ">
 

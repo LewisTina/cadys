@@ -20,7 +20,7 @@ export default function Header(props: any){
 
            <div className="
                 w-full
-                px-10 py-2
+                px-10 py-2 sm:px-4
                 max-w-[1535px]
                 flex
                 justify-between items-center
@@ -34,21 +34,23 @@ export default function Header(props: any){
             </div>
 
             <div className="flex items-center">
-                <FormButton
-                    action={()=>{router.push("/quotation")}} 
-                    autoSize={true} 
-                    name={'make_an_appointment'}
-                    type={"button"} />
+                <div className="flex md:hidden">
+                    <FormButton
+                        action={()=>{router.push("/quotation")}} 
+                        autoSize={true} 
+                        name={'make_an_appointment'}
+                        type={"button"} />
 
-                <span className="m-2"></span>
-                <FormButton
-                    action={()=>{router.push("/register")}} 
-                    autoSize={true} 
-                    isSecondary={true}
-                    name={'partner'}
-                    type={"button"} />
+                    <span className="m-2"></span>
+                    <FormButton
+                        action={()=>{router.push("/register")}} 
+                        autoSize={true} 
+                        isSecondary={true}
+                        name={'partner'}
+                        type={"button"} />
 
-                <span className="m-2"></span>
+                    <span className="m-2"></span>
+                </div>
                 <div className="">
                     <SwitchTheme></SwitchTheme>
                 </div>

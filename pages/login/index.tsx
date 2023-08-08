@@ -47,7 +47,7 @@ export default function Register(props: any) {
 
             <PresentationPanel 
                 title={'view_your_activities'} 
-                img={'travailleur-social-prenant-soin-femme-ainee.jpg'}/>
+                img={'/travailleur-social-prenant-soin-femme-ainee.jpg'}/>
                 
         </main>
     )
