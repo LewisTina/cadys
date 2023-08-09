@@ -5,6 +5,8 @@ import { useState } from 'react'
 import CheckItem from '../../Form/CheckItem'
 import Link from 'next/link'
 import style from './index.module.scss'
+import FormButton from '../../Form/FormButton'
+import { useRouter } from 'next/router'
 
 const options = ["daily_help", "household", "uo_and_bed", "social_life", "night_assist", "groceries"]
 
@@ -15,6 +17,7 @@ const dm_Serif_Display = DM_Serif_Display({
 
 export default function Cover(props: any){
     const {t} = useTranslation('common')
+    const router = useRouter()
 
     return(
         <div 
@@ -70,6 +73,20 @@ export default function Cover(props: any){
                     <p className="font-bold">
                         {t('intro_subtext')}
                     </p>
+
+                    <div className="hidden md:block">
+                        <FormButton
+                            action={()=>{router.push("/quotation")}} 
+                            name={'make_an_appointment'}
+                            type={"button"} />
+
+                        <FormButton
+                            action={()=>{router.push("/register")}} 
+                            isSecondary={true}
+                            name={'partner'}
+                            type={"button"} />
+
+                    </div>
                 </div>
 
                 <div 

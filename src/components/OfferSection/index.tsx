@@ -82,7 +82,7 @@ export default function OfferSection(props: any){
                         className="
                             flex sm:flex-col lg:flex-wrap
                             justify-center lg:justify-start">
-                        <div className="rounded-[2rem] bg-white dark:bg-darkest lg:max-w-[calc(50%-1rem)] p-4 lg:my-2 mx-2 md:mx-0 md:my-2">
+                        <div className="rounded-[2rem] bg-white dark:bg-darkest sm:max-w-full lg:max-w-[calc(50%-1rem)] p-4 lg:my-2 mx-2 md:mx-0 md:my-2">
                             <div className="rounded-2xl bg-light-grey dark:bg-black p-4 flex flex-col items-center">
                                     <Image 
                                         src={'/11.svg'} 
@@ -106,7 +106,7 @@ export default function OfferSection(props: any){
                                 
                             </div>
                         </div>
-                        <div className="rounded-[2rem] bg-white dark:bg-darkest lg:max-w-[calc(50%-1rem)] p-4 lg:my-2 mx-2 md:mx-0 md:my-2">
+                        <div className="rounded-[2rem] bg-white dark:bg-darkest sm:max-w-full lg:max-w-[calc(50%-1rem)] p-4 lg:my-2 mx-2 md:mx-0 md:my-2">
                             <div className="rounded-2xl bg-light-grey dark:bg-black p-4 flex flex-col items-center">
                                     <Image 
                                         src={'/10.svg'} 
@@ -130,7 +130,7 @@ export default function OfferSection(props: any){
                                 
                             </div>
                         </div>
-                        <div className="rounded-[2rem] bg-white dark:bg-darkest lg:max-w-[calc(50%-1rem)] p-4 lg:my-2 mx-2 md:mx-0 md:my-2">
+                        <div className="rounded-[2rem] bg-white dark:bg-darkest sm:max-w-full lg:max-w-[calc(50%-1rem)] p-4 lg:my-2 mx-2 md:mx-0 md:my-2">
                             <div className="rounded-2xl bg-light-grey dark:bg-black p-4 flex flex-col items-center">
                                     <Image 
                                         src={'/9.svg'} 
