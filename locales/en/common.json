@@ -41,6 +41,12 @@
     "an_email_was_sent": "A confirmation email has been sent to you",
     "resend_code": "Resend Code",
 
+    "welcome_back": "Welcome back among us.",
+    "connect_to_your_account": "Log in to your account",
+    "new_user": "Not yet registered?",
+    "view_your_activities": "View your activities and manage your account",
+    
+
     "enter_brand_data": "Enter Your Company's Information",
     "brand_data_left": "You just need to enter your company's information",
     "email_pro": "Professional Email",

@@ -72,7 +72,7 @@ export default function RegisterForm(props: RegisterFormProps){
 
               <span 
                 className="capitalize py-1 px-4 hover:text-primary-dark hover:bg-primary-dark/10 rounded-full transition-all cursor-pointer"
-                onClick={()=>{router.push('/register')}}>
+                onClick={()=>{router.push('/login')}}>
               {t('already_user')}
               </span>
               

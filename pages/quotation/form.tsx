@@ -115,7 +115,7 @@ export default function QuotationForm(props: QuotationFormProps){
         <form onSubmit={handleSubmit(onSubmitStep0)} className={"flex flex-col"} id="step0" key="0">  
             <ul className={`
                         list-none text-base z-10 
-                        flex flex-wrap 
+                        flex flex-wrap md:flex-col md:flex-nowrap md:items-center
                         `}>
                         <CheckIBoxDescribed title={'urgent_request'} text={'urgent_request_description'}/>
                         <CheckIBoxDescribed title={'simple_request'} text={'simple_request_description'}/>

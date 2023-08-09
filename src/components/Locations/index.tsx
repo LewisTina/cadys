@@ -15,7 +15,7 @@ export default function Locations(props: any){
                             {
                                 LocationsTown?.map((location: string, idx: number) => {
                                     return(
-                                        <span className="text-3xl font-bold block mx-2 my-4" key={idx}>
+                                        <span className="text-3xl sm:text-xl font-bold block mx-2 my-4" key={idx}>
                                             {location} {idx < LocationsTown.length - 1 && '  -'}
                                         </span>
                                     )

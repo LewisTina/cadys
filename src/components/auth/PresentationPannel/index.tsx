@@ -66,7 +66,7 @@ export default function PresentationPanel(props: panelProps){
                     justify-between items-end 
                     z-10 
                     pt-6`}>
-                    <div className={`${style.title}`}>
+                    <div className={`${style.title} max-w-[calc(100%-6rem)]`}>
                         <h1>
                             {t(title)}
                         </h1>
