@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 /**
  * @swagger
- * /api/password-recovery/resend-code:
+ * /api/auth/password-recovery/resend-code:
  *   put:
  *     summary: Password recovery resend code
  *     description: Password recovery resend code

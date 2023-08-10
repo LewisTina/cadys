@@ -2,10 +2,12 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 /**
  * @swagger
- * /api/me:
+ * /api/auth/me:
  *   get:
  *     summary: Get current user
  *     description: Get current connected user
+ *     security:
+ *        TokenRequired: []
  *     tags: ["auth"]
  *     responses:
  *       200:

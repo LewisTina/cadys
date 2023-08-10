@@ -38,14 +38,14 @@ services:
     networks:
       - app-network
 
-  # API container
-  cadys_api:
+  # APP container
+  cadys_app:
     container_name: cadys
     build: ./
     volumes:
       - ./:/webapp
     ports:
-      - 5030:80
+      - 3000:3000
     depends_on:
       - cadys_database
     restart: always

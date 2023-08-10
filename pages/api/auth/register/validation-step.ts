@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 /**
  * @swagger
- * /api/register/validation-step:
+ * /api/auth/register/validation-step:
  *   put:
  *     summary: Email validation step for creation customer account
  *     description: Email validation step for creation customer account

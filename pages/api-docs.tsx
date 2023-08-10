@@ -35,10 +35,9 @@ export const getStaticProps: GetStaticProps = async () => {
       components: {
         securitySchemes: {
           TokenRequired: tokenRequiredBearer
-            
         }
           
-      }
+      },
         
     },
   });

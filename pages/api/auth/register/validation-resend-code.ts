@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 /**
  * @swagger
- * /api/register/validation-resend-code:
+ * /api/auth/register/validation-resend-code:
  *   put:
  *     summary: Resend code if the code is invalid
  *     description: Resend code if the code is invalid
