@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 /**
  * @swagger
- * /api/password-recovery:
+ * /api/auth/password-recovery:
  *   put:
  *     summary: Password recovery
  *     description: Password recovery

@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 /**
  * @swagger
- * /api/login:
+ * /api/auth/login:
  *   post:
  *     summary: Login user
  *     description: Sign in with email and password

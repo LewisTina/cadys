@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 /**
  * @swagger
- * /api/register/reset-password:
+ * /api/auth/register/reset-password:
  *   put:
  *     summary: Ask for verification code for reset password
  *     description: Ask for verification code for reset password

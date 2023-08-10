@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 /**
  * @swagger
- * /api/register/first-step:
+ * /api/auth/register/first-step:
  *   post:
  *     summary: First step for creation customer account
  *     description: First step for creation customer account
