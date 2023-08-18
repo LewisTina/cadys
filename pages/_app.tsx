@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { ThemeProvider } from "next-themes"
 import { Roboto } from 'next/font/google'
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -25,11 +26,13 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <main className={`${roboto.className}`}>
-        <ThemeProvider attribute="class">
-                  <Component {...pageProps} />
-        </ThemeProvider>
-      </main>
+      <GoogleOAuthProvider clientId={"878393888095-17e41jvd6k0i8a0nq4jih895otq0meqr.apps.googleusercontent.com"}>
+        <main className={`${roboto.className}`}>
+          <ThemeProvider attribute="class">
+                    <Component {...pageProps} />
+          </ThemeProvider>
+        </main>
+      </GoogleOAuthProvider>
     {/* <ReactQueryDevtools initialIsOpen={false} /> */}
   </QueryClientProvider>)
 }
