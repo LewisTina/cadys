@@ -35,8 +35,168 @@ export const getStaticProps: GetStaticProps = async () => {
       components: {
         securitySchemes: {
           TokenRequired: tokenRequiredBearer
-        }
+        },
+
+        schemas: {
           
+          address: {
+            properties:{
+              zip_code: 
+                {type: "string"},
+              city:
+                {type: "string"},
+              address_title:
+                {type: "string"}
+          }},
+          
+          Message : {
+            properties:{
+                message: {
+                  type: "string"
+                }
+            }
+          },
+          
+          UserCreation: {
+            properties:{
+              first_name: 
+                {type: "string"},
+              last_name:
+                {type: "string"},
+              phone:
+                {type: "string"},
+              sex:
+                {type: "string"},
+              email:
+                {type: "string"},
+              password:
+                {type: "string"},
+            }
+          },
+
+          Validation: {
+            properties: {
+              code:
+              {type: "string"},
+              email:
+              {type: "string"},
+            }
+          },
+
+          ResetPassword: {
+            properties: {
+              email:
+              {type: "string"},
+              new_password:
+              {type: "string"},
+            }
+          },
+
+          Login: {
+            properties: {
+              email:
+              {type: "string"},
+              password:
+              {type: "string"},
+            }
+          },
+
+          ResendCode: {
+            properties: {
+              email:
+              {type: "string"},
+            }
+          },
+          
+          BrandCreation: {
+            properties:{
+              manager_uuid: 
+                {type: "string"},
+              email_pro: 
+                {type: "string"},
+              name:
+                {type: "string"},
+              siret:
+                {type: "string"},
+              activities:
+                {type: "object"},
+              address:
+                {$ref: '#/components/schemas/address'},
+              legal_status:
+                {type: "string"},
+            }
+          },
+
+          legal_status: {
+            properties:{
+              uuid: 
+                {type: "string"},
+              code: 
+                {type: "string"},
+              title_i18n:
+                {type: "object"}
+            }
+          },
+
+          company: {
+            properties:{
+              uuid: 
+                {type: "string"},
+              email_pro: 
+                {type: "string"},
+              name:
+                {type: "string"},
+              siret:
+                {type: "string"},
+              activities:
+                {type: "object"},
+              address:
+                {$ref: '#/components/schemas/address'},
+              legal_status:
+                {$ref: "#/components/schemas/legal_status"},
+            }
+            
+          },
+
+          userDisplay: {
+            properties:{
+              first_name: 
+                {type: "string"},
+              last_name:
+                {type: "string"},
+              phone:
+                {type: "string"},
+              sex:
+                {type: "string"},
+              email:
+                {type: "string"},
+              password:
+                {type: "string"},
+              avatar_uuid:
+                {type: "string"},
+              createdAt:
+                {type: "datetime"},
+              modifiedAt:
+                {type: "date"},
+              last_login:
+                {type: "date"},
+            }
+
+          },
+
+          CompanyManager: {
+            properties:{
+              uuid: 
+                {type: "string"},
+              manager: 
+                {$ref: '#/components/schemas/userDisplay'},
+              company:
+                {$ref: '#/components/schemas/company'},
+              date_added:
+                {type: "date"},
+            }
+          }
+        }  
       },
         
     },

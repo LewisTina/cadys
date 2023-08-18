@@ -22,9 +22,6 @@ class UserService {
   static postBrandData = (data: any) =>
     BaseService.postRequest(UserUrl.POST_BRAND_DATA, data, false);
 
-
-
-
   static putCodeRegister = (data: any) =>
     BaseService.putRequest(`${UserUrl.PUT_REGISTER_VALIDATE}/${data.code}`, data, false);
 

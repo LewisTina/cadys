@@ -1,4 +1,4 @@
-export const prefix = process.env.NEXT_PUBLIC_REACT_APP_API_URL;
+export const prefix = '/api/';
 
 export const UserUrl = {
     FETCH_DEFAULT_DATA: `${prefix}users/default/data`,
@@ -6,6 +6,7 @@ export const UserUrl = {
     PUT_USERS_ME: `${prefix}users/me`,
 
     GET_USER_ME: `${prefix}user/me`,
+    MAILER: `${prefix}mailer`,
 
     POST_AUTH_LOGIN: `${prefix}auth/login`,
     GET_AUTH_ME: `${prefix}auth/me`,

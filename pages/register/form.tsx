@@ -113,7 +113,7 @@ export default function RegisterForm(props: RegisterFormProps){
                 controller={register}
                 values={compagnieTypes}
                 require={errors}
-                name={'status'}
+                name={'legal_status'}
                 icon={'business_center'}
                 placeholder={'brand_status'} 
                 setValue={setValue}
