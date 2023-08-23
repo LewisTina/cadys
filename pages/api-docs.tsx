@@ -57,6 +57,14 @@ export const getStaticProps: GetStaticProps = async () => {
             }
           },
 
+          migration: {
+            properties:{
+                key: {
+                  type: "string"
+                }
+            }
+          },
+
           LoginWithGoogle:{
             properties:{
                 access_token: {
@@ -75,8 +83,10 @@ export const getStaticProps: GetStaticProps = async () => {
                 {type: "string"},
               sex:
                 {type: "string"},
-              email:
-                {type: "string"},
+              email: {
+                type: "string",
+                format: "email"
+                },
               password:
                 {type: "string"},
             }
@@ -86,24 +96,39 @@ export const getStaticProps: GetStaticProps = async () => {
             properties: {
               code:
               {type: "string"},
-              email:
-              {type: "string"},
+              email: {
+                type: "string",
+                format: "email"
+              },
             }
           },
 
           ResetPassword: {
             properties: {
-              email:
-              {type: "string"},
+              email: {
+                type: "string",
+                format: "email"
+              },
               new_password:
+              {type: "string"},
+            }
+          },
+
+          Created: {
+            properties: {
+              message:
+              {type: "string"},
+              uuid:
               {type: "string"},
             }
           },
 
           Login: {
             properties: {
-              email:
-              {type: "string"},
+              email: {
+                type: "string",
+                format: "email"
+              },
               password:
               {type: "string"},
             }
@@ -111,8 +136,10 @@ export const getStaticProps: GetStaticProps = async () => {
 
           ResendCode: {
             properties: {
-              email:
-              {type: "string"},
+              email: {
+                type: "string",
+                format: "email"
+              },
             }
           },
           
@@ -120,8 +147,9 @@ export const getStaticProps: GetStaticProps = async () => {
             properties:{
               manager_uuid: 
                 {type: "string"},
-              email_pro: 
-                {type: "string"},
+              email_pro: {
+                type: "string",
+                format: "email"},
               name:
                 {type: "string"},
               siret:
@@ -182,10 +210,14 @@ export const getStaticProps: GetStaticProps = async () => {
                 {type: "string"},
               avatar_uuid:
                 {type: "string"},
-              createdAt:
-                {type: "datetime"},
-              modifiedAt:
-                {type: "date"},
+              createdAt: {
+                type: "string",
+                format: "date-time",
+              },
+              modifiedAt:{
+                type: "string",
+                format: "date-time",
+              },
               last_login:
                 {type: "date"},
             }
@@ -203,7 +235,100 @@ export const getStaticProps: GetStaticProps = async () => {
               date_added:
                 {type: "date"},
             }
+          },
+
+          client: {
+            properties:{
+              email: {
+                type: "string",
+                format: "email"
+              },
+            }
+          },
+
+          
+        RequestQuotation: {
+        type: "object",
+        properties: {
+          email: {
+            type: "string",
+            format: "email"
+          },
+          request_date: {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "description": "Date of the service request"
+          },
+          start_date: {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "description": "Date of the intervention"
+          },
+          end_date: {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "description": "Date of the intervention"
+          },
+          address:
+            {$ref: '#/components/schemas/address'},
+          remark: {
+            "type": "string",
+            "nullable": true,
+            "description": "Remarks for the service request"
+          },
+          activities: {
+            "type": "object",
+            "nullable": true,
+            "description": "Activities related to the service request"
+          },
+          is_urgent: {
+            "type": "boolean",
+            "nullable": true,
+            "description": "Indicates if the service request is urgent"
           }
+        }
+      },
+
+      ChangeMissionState: {
+        properties:{
+          uuid: {
+            type: "string",
+            format: "uuid"
+          },
+          state: {
+            type: "string",
+            enum: ["PENDING", "IN_PROGRESS", "DONE", "CANCELED", "REJECTED"],
+          }
+        }
+      },
+
+      AcceptOrDeclineMission: {
+        properties:{
+          mission_uuid: {
+            type: "string",
+            format: "uuid"
+          },
+          accept: {
+            type: "boolean",
+          }
+        }
+      },
+
+      RequestBrand: {
+        properties:{
+          mission_uuid: {
+            type: "string",
+            format: "uuid"
+          },
+          company_uuid: {
+            type: "string",
+            format: "uuid"
+          }
+        }
+      },
         }  
       },
         

@@ -19,6 +19,46 @@ export class LegalStatus extends Model {
   public code!: string
 }
 
+export class Manager extends Model {
+  public uuid!: string;
+  public company_uuid!: string
+  public manager_uuid!: string
+  public is_deleted!: boolean
+  public readonly createdAt!: Date;
+  public readonly updatedAt!: Date;
+}
+
+Manager.init(
+  {
+    uuid: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      unique: true,
+      allowNull: false
+    },
+    company_uuid: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    manager_uuid: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    is_deleted: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+    },
+
+  },
+  {
+    sequelize,
+    modelName: 'Manager',
+    tableName: 'company_manager',
+    timestamps: false
+  }
+)
+
+
 LegalStatus.init(
   {
     uuid: {

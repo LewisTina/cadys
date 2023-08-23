@@ -23,7 +23,7 @@ export class User extends Model {
   public email!: string;
   public password_hash!: string
   public last_login!: Date
-  public avatar_uuid!: string
+  public avatar_id!: string
   public status!: UserStatusType
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
@@ -102,7 +102,7 @@ User.init(
       type: DataTypes.DATE,
       allowNull: true,
     },
-    avatar_uuid: {
+    avatar_id: {
       type: DataTypes.STRING,
       allowNull: true,
     },
