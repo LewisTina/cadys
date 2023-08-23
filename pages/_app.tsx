@@ -6,6 +6,7 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 import { ThemeProvider } from "next-themes"
 import { Roboto } from 'next/font/google'
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import { OperationStatusProvider } from '@/src/context/OperationStatus';
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -26,13 +27,15 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <GoogleOAuthProvider clientId={"878393888095-17e41jvd6k0i8a0nq4jih895otq0meqr.apps.googleusercontent.com"}>
-        <main className={`${roboto.className}`}>
-          <ThemeProvider attribute="class">
-                    <Component {...pageProps} />
-          </ThemeProvider>
-        </main>
-      </GoogleOAuthProvider>
-    {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+      <OperationStatusProvider>
+        <GoogleOAuthProvider clientId={"878393888095-17e41jvd6k0i8a0nq4jih895otq0meqr.apps.googleusercontent.com"}>
+          <main className={`${roboto.className}`}>
+            <ThemeProvider attribute="class">
+                      <Component {...pageProps} />
+            </ThemeProvider>
+          </main>
+        </GoogleOAuthProvider>
+      </OperationStatusProvider>
+    <ReactQueryDevtools initialIsOpen={false} />
   </QueryClientProvider>)
 }

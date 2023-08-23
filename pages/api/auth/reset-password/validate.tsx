@@ -5,7 +5,7 @@ import { User, UserStatusType } from '../../models/user';
 
 /**
  * @swagger
- * /api/auth/register/reset-password/validate:
+ * /api/auth/reset-password/validate:
  *   put:
  *     summary: Validate verification code for reset password
  *     description: Validate verification code for reset password
@@ -37,7 +37,7 @@ import { User, UserStatusType } from '../../models/user';
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'PUT') {
     try {  
-      const { code, email } = req.query;
+      const { code, email } = req.body;
 
       const user = await User.findOne({ where: { email } });
       if (!user) {

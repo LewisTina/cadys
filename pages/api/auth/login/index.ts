@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { User, UserStatusType } from '../../models/user';
 import { comparePasswords, generateToken } from '../../security';
-import db from '../../db/database';
+import db from '../../db';
 
 /**
  * @swagger

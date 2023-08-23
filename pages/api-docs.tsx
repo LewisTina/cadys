@@ -56,6 +56,14 @@ export const getStaticProps: GetStaticProps = async () => {
                 }
             }
           },
+
+          LoginWithGoogle:{
+            properties:{
+                access_token: {
+                  type: "string"
+                }
+            }
+          },
           
           UserCreation: {
             properties:{

@@ -1,5 +1,5 @@
 import { Model, DataTypes } from 'sequelize';
-import sequelize from '../db/database';
+import sequelize from '../db';
 
 export class Company extends Model {
   public uuid!: string;
@@ -8,7 +8,7 @@ export class Company extends Model {
   public siret!: string
   public activities!: JSON
   public address_uuid!: string
-  public legal_status!: string
+  public legal_status_uuid!: string
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
 
@@ -41,6 +41,7 @@ LegalStatus.init(
     sequelize,
     modelName: 'LegalStatus',
     tableName: 'company_legal_status',
+    timestamps: false
   }
 )
 
@@ -72,7 +73,7 @@ Company.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    legal_status: {
+    legal_status_uuid: {
       type: DataTypes.STRING,
       allowNull: true,
     },

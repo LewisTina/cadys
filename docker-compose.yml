@@ -12,6 +12,8 @@ services:
       POSTGRES_PASSWORD: new_app
     volumes: 
       - db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
     networks:
       - app-network
     deploy:
@@ -41,6 +43,7 @@ services:
   # APP container
   cadys_app:
     container_name: cadys
+    restart: always
     build: ./
     volumes:
       - ./:/webapp
@@ -48,7 +51,6 @@ services:
       - 3000:3000
     depends_on:
       - cadys_database
-    restart: always
     networks:
       - app-network
 

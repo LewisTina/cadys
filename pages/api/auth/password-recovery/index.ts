@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import Mailer from '../../mailer';
 import { generateCode } from '@/src/utils/helper';
 import { User, UserStatusType } from '../../models/user';
-import db from '../../db/database'
+import db from '../../db'
 import UserPreRegister from '../../models/user_preregister';
 
 /**
