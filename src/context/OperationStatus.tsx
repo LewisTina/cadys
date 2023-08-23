@@ -3,7 +3,7 @@ import OperationSate from "../components/OperationsState";
 
 export const OperationStatus = createContext<any>({});
 
-export const OperationStatusProvider = ({ children }) => {
+export const OperationStatusProvider: React.FC<any> = ({ children }) => {
     const [showMessage, setShowMessage] = useState(false)
     const [message, SetMessage] = useState<undefined | any>(undefined)
     const [status, SetStatus] = useState<undefined | any>(undefined)
