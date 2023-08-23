@@ -1,5 +1,5 @@
 import { Model, DataTypes } from 'sequelize';
-import sequelize from '../db/database';
+import sequelize from '../db';
 
 export enum UserStatusType {
     INACTIVATED = 'INACTIVATED',
@@ -58,6 +58,7 @@ UserRoles.init(
     sequelize,
     modelName: 'UserRoles',
     tableName: 'user_roles',
+    timestamps: false
   }
 )
 
@@ -109,7 +110,7 @@ User.init(
       type: DataTypes.ENUM('INACTIVATED', 'ACTIVATED', 'INACTIVE', 'DELETED'),
       defaultValue: UserStatusType.INACTIVATED,
       allowNull: true,
-    },
+    }
   },
 
   {

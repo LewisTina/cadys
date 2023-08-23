@@ -1,4 +1,4 @@
-
+const crypto = require('crypto');
 /* export function multipleSubstrReplace(keyPattern: { [key: string]: string }, inputText: string): string {
   const rep: { [key: string]: string } = {};
   for (const [k, v] of Object.entries(keyPattern)) {
@@ -30,6 +30,13 @@ export function validatePostalCode(code: string): boolean {
   const regex = /^(0[1-9]|[1-9][0-9])[0-9]{3}$/;
   return regex.test(code);
 }
+
+export function hashString(data: string) {
+  const hash = crypto.createHash('sha256');
+  hash.update(data);
+  return hash.digest('hex');
+}
+
 
 /* function isValidPhoneNumber(number: string): string | false {
   try {

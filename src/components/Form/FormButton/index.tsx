@@ -8,15 +8,17 @@ interface buttonProps {
     isStepButton?: boolean
     action?: any
     autoSize?: any
+    disable?: any
 }
 
 export default function FormButton(props: buttonProps){
     const {t} = useTranslation("common")
-    const {name, type, isSecondary, isStepButton, action, autoSize} = props
+    const {name, type, isSecondary, isStepButton, action, autoSize, disable} = props
     return(
         <button 
             type={type}
             onClick={action}
+            disabled={disable}
             className={`
                 ${style.formButton}
                 flex
@@ -36,6 +38,10 @@ export default function FormButton(props: buttonProps){
                     isSecondary ?
                     "bg-transparent border-2 border-primary text-primary" :
                     "text-white bg-primary"
+                }
+                ${
+                    disable ?
+                    "bg-gray-300" : ""
                 }
                 font-bold
                 capitalize

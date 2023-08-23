@@ -1,13 +1,13 @@
 import { Model, DataTypes } from 'sequelize';
-import sequelize from '../db/database';
+import sequelize from '../db';
 
 class UserPreRegister extends Model {
   public id!: number;
   public user_uuid!: string
   public code!: Text
   public expired_date!: Date
-  public readonly add_on!: Date;
-  public readonly modified_on!: Date;
+  public readonly createdAt!: Date;
+  public readonly updatedAt!: Date;
 
 }
 
@@ -15,6 +15,7 @@ UserPreRegister.init(
   {
     id: {
       type: DataTypes.INTEGER,
+      autoIncrement: true,
       primaryKey: true,
       allowNull: false
       },
@@ -29,15 +30,7 @@ UserPreRegister.init(
     expired_date: {
       type: DataTypes.DATE,
       allowNull: true,
-    },
-    add_on: {
-      type: DataTypes.DATE,
-      allowNull: true,
-    },
-    modified_on: {
-      type: DataTypes.DATE,
-      allowNull: true,
-    },
+    }
   },
 
   {

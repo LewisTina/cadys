@@ -1,10 +1,10 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { User } from '../../models/user';
-import { LegalStatus } from '../../models/company';
+import { User, UserStatusType } from '../../models/user';
+import { Company, LegalStatus } from '../../models/company';
 import { v4 as uuidV4 } from 'uuid';
 import Mailer from '../../mailer';
 import Address from '../../models/address';
-import db from '../../db/database';
+import db from '../../db';
 import { generateToken } from '../../security';
 
 /**
@@ -52,22 +52,26 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(409).json({ detail: 'user-not-exist' });
       }
 
+      if (user.status != UserStatusType.ACTIVATED) {
+          return res.status(400).json({ detail: 'please_active_your_account' });
+      }
+
       if (legal_status) {
         const legal_status_exist = await LegalStatus.findOne({ where: { uuid: legal_status } });
-        if (legal_status_exist) {
+        if (!legal_status_exist) {
           return res.status(409).json({ detail: 'invalid_company_status' });
         }
       }
 
       const company_address = await Address.create({
         uuid: uuidV4(),
-        zip_code: baseData.zip_code || '',
-        city: baseData.city || '',
-        address_title: baseData.address || '',
+        zip_code: baseData.address.zip_code || '',
+        city: baseData.address.city || '',
+        address_title: baseData.address.address_title || '',
         client_uuid: manager || '',
       })
 
-      const company = await User.create({
+      const company = await Company.create({
         uuid: uuidV4(),
         email_pro: baseData.email_pro || '',
         name: baseData.name || '',
@@ -86,7 +90,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
 
       const mailData = {
-        email : baseData.email,
+        email : user.email,
         subject: "Cadys | Bienvenue",
         content:{},
         template: "welcome"
@@ -108,7 +112,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     
     } catch (error) {
       console.error(error);
-      return res.status(500).json({ message: 'error_registering_user' });
+      return res.status(500).json({ message: 'error_registering_company' });
     }
   }
 

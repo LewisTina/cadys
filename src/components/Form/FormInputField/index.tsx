@@ -1,4 +1,5 @@
 import useTranslation from "next-translate/useTranslation";
+import ErrorForm from "../ErrorForm";
 
 interface FieldProps {
     id?: string,
@@ -9,6 +10,7 @@ interface FieldProps {
     name: string;
     onChange?: any
     require?: any
+    validityCheck?: boolean
 }
 
 export default function FormInputField(props: FieldProps)  {
@@ -22,6 +24,7 @@ export default function FormInputField(props: FieldProps)  {
         name,
         onChange,
         require,
+        validityCheck,
     } = props;
 
     const getPattern = (type : string, name : string) => {
@@ -36,12 +39,20 @@ export default function FormInputField(props: FieldProps)  {
                     value : /^[\+]\d{2,}[0-9]{8,}$/,
                     message: 'invalid_phone'
                 }
+            case "password" :
+                if(validityCheck){
+                    return {
+                        value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z.!@#$%^&*_=+-]{8,}$/,
+                        message: "invalid_password",
+                      }
+                }
             default:
                 return undefined
         }
     }
     
     return (
+        <>
         <label className="relative block">
             <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                 <span 
@@ -74,9 +85,11 @@ export default function FormInputField(props: FieldProps)  {
                     `}
                     onKeyUp={onChange}
                     />
-                    {
-                        // (require != undefined) && (require[name] && <ErrorForm message={`${require[name]?.message}`}/>)
-                    }
         </label>
+        
+        {
+            (require != undefined) && (require[name] && <ErrorForm message={`${require[name]?.message}`}/>)
+        }
+        </>
     )
 }

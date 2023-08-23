@@ -1,12 +1,12 @@
 import { Model, DataTypes } from 'sequelize';
-import sequelize from '../db/database';
+import sequelize from '../db';
 
 class Address extends Model {
   public uuid!: string;
   public zip_code!: Text
   public city!: Text
   public address_title!: Text
-  public user_uuid!: string
+  public client_uuid!: string
 
 }
 
@@ -30,7 +30,7 @@ Address.init(
       type: DataTypes.TEXT,
       allowNull: true,
     },
-    user_uuid: {
+    client_uuid: {
       type: DataTypes.STRING,
       allowNull: true,
     }
@@ -40,6 +40,7 @@ Address.init(
     sequelize,
     modelName: 'Address',
     tableName: 'address',
+    timestamps: false
   }
 );
 

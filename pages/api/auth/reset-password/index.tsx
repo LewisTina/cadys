@@ -4,7 +4,7 @@ import { hashPassword } from '../../security';
 
 /**
  * @swagger
- * /api/auth/register/reset-password:
+ * /api/auth/reset-password:
  *   put:
  *     summary: Ask for verification code for reset password
  *     description: Ask for verification code for reset password
@@ -36,7 +36,7 @@ import { hashPassword } from '../../security';
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'PUT') {
     try {  
-      const { email, new_password } = req.query;
+      const { email, new_password } = req.body;
 
       const user = await User.findOne({ where: { email } });
       if (!user) {

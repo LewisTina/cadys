@@ -5,7 +5,7 @@ import { generateCode } from '@/src/utils/helper';
 import { v4 as uuidV4 } from 'uuid';
 import { hashPassword } from '../../security';
 import UserPreRegister from '../../models/user_preregister';
-import db from '../../db/database';
+import db from '../../db';
 
 /**
  * @swagger
@@ -85,7 +85,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const userPreRegister = await UserPreRegister.create({
         user_uuid: user.uuid,
         code: code,
-        expired_date: new Date(Date.now() + 48 * 60 * 60 * 1000)
+        expired_date: new Date(Date.now() + 24 * 60 * 60 * 1000)
       })
 
       await  await db.transaction(async (transaction: any) => {
