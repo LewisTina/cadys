@@ -83,7 +83,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       await User.update({last_login: new Date(Date.now())}, {where: {uuid: manager}})
 
-      await  await db.transaction(async (transaction: any) => {
+      await db.transaction(async (transaction: any) => {
         await company_address.save({ transaction });      
         await company.save({ transaction });      
         await User.update({last_login: new Date(Date.now())}, {where: {uuid: manager}, transaction})

@@ -27,8 +27,7 @@ export default async function Mailer(data: any) {
 
     var replacements = data["content"]
     console.log("the template 2: ", replacements);
-    console.log("the template 21: ", template);
-    try {
+     try {
       var htmlToSend = template(replacements);
     }
     catch (err) {
@@ -38,8 +37,6 @@ export default async function Mailer(data: any) {
         "message": err
       }
     }
-
-    console.log("the template 3: ", htmlToSend);
 
     const mailOptions = {
       from: `CADYS <${process.env.EMAIL_USER}>`, // sender address
