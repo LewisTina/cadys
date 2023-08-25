@@ -6,6 +6,7 @@ import { Client } from '../models/client';
 import Address from '../models/address';
 import Mailer from '../mailer';
 import { UserRoles } from '../models/user';
+import moment from 'moment';
 
 /**
  * @swagger
@@ -240,8 +241,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         address_title: baseData.address.address_title || '',
         activities: baseData.activities,
         is_urgent: baseData.is_urgent,
-        intervention_date_start: baseData.start_date,
-        intervention_date_end: baseData.end_date,
+        intervention_date_start: moment(baseData.start_date).format(`DD/MM/YYYY à HH:mm`),
+        intervention_date_end: moment(baseData.end_date).format(`DD/MM/YYYY à HH:mm`),
       },
       template: "requestConfirmation"
     }

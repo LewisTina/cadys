@@ -3,6 +3,7 @@ import style from "./index.module.scss"
 import { useState } from "react";
 import useTranslation from "next-translate/useTranslation";
 import QuotationForm from "./form";
+import Layout from "@/src/Layout";
 
 export default function Quotation(props: any){
     const [step, setStep] = useState(0);
@@ -23,6 +24,7 @@ export default function Quotation(props: any){
         )
     }
     return(
+        <Layout title="quotation">
         <main 
             className='
                 bg-light-grey dark:bg-black
@@ -194,5 +196,6 @@ export default function Quotation(props: any){
             </div>
             
         </main>
+    </Layout>
     )
 }

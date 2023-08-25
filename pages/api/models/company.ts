@@ -54,7 +54,6 @@ Manager.init(
     sequelize,
     modelName: 'Manager',
     tableName: 'company_manager',
-    timestamps: false
   }
 )
 

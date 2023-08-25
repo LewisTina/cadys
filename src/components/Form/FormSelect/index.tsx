@@ -96,6 +96,7 @@ export default function FormSelect(props: SelectProps)  {
                     py-3 px-12  my-2.5
                     cursor-pointer
                     focus:outline-none
+                    pointer-events-none
                     ${(require != undefined) && (require[name] && `ring-2 ring-light-red/20 border-light-red/50`)}
                     ${isOpen ? "ring-2 ring-primary/20 border-primary/50" : ""}
                   dark:focus:ring-primary/50 dark:focus:border-primary/70

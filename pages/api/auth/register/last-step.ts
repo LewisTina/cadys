@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { User, UserStatusType } from '../../models/user';
-import { Company, LegalStatus } from '../../models/company';
+import { Company, LegalStatus, Manager } from '../../models/company';
 import { v4 as uuidV4 } from 'uuid';
 import Mailer from '../../mailer';
 import Address from '../../models/address';
@@ -44,10 +44,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     try {
       const baseData = req.body;
 
-      const manager = baseData.manager_uuid
+      const user_uuid = baseData.manager_uuid
       const legal_status = baseData.legal_status
 
-      const user = await User.findOne({ where: { uuid: manager } });
+      const user = await User.findOne({ where: { uuid: user_uuid } });
       if (!user) {
         return res.status(409).json({ detail: 'user-not-exist' });
       }
@@ -68,7 +68,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         zip_code: baseData.address.zip_code || '',
         city: baseData.address.city || '',
         address_title: baseData.address.address_title || '',
-        client_uuid: manager || '',
+        client_uuid: user_uuid || '',
       })
 
       const company = await Company.create({
@@ -81,12 +81,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         legal_status_uuid : baseData.legal_status
       });
 
-      await User.update({last_login: new Date(Date.now())}, {where: {uuid: manager}})
+      const manager = await Manager.create({
+        uuid: uuidV4(),
+        company_uuid: company.uuid,
+        manager_uuid: user_uuid,
+        
+      })
+
+      await User.update({last_login: new Date(Date.now())}, {where: {uuid: user_uuid}})
 
       await db.transaction(async (transaction: any) => {
         await company_address.save({ transaction });      
         await company.save({ transaction });      
-        await User.update({last_login: new Date(Date.now())}, {where: {uuid: manager}, transaction})
+        await manager.save({ transaction });      
+        await User.update({last_login: new Date(Date.now())}, {where: {uuid: user_uuid}, transaction})
       });
 
       const mailData = {

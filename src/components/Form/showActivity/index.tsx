@@ -1,60 +1,32 @@
 import { DM_Serif_Display } from 'next/font/google'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const dm_Serif_Display = DM_Serif_Display({
     weight: '400',
     subsets: ['latin']
 })
 
-interface checkActivity {
-    imgUrl:   string;
-    name:   string;
-    controller:  any;
-    text: string;
-    getValues: any;
-    value: string
-}
 
-export default function CheckItem(props: checkActivity){
-    const {text, imgUrl, controller, name, getValues, value} = props
-    const [checked, setChecked] = useState(false)
-
-    useEffect(() => {
-        let value = getValues(name)
-        setChecked(value)
-    }, [getValues, name])
-    
+export default function ShowActivity(props: any){
+    const {text, imgUrl} = props
 
     return (
-        <label 
-            htmlFor={name}
+        <li 
             className={` 
                 ${dm_Serif_Display.className} 
-                ${checked ? "bg-primary/25" : "bg-white dark:bg-darkest"}
+                bg-white dark:bg-darkest
                 border-2 border-deep-green
                 flex
                 items-center
-                cursor-pointer
+                cursor-default
                 p-2 pr-4 mr-4 mb-4 
                 transition
                 duration-500
                 rounded-3xl`}>
-        <input 
-            id={name}
-            type='checkbox'
-            value={value}
-            onClick={() => {setChecked(!checked)}}
-            className='hidden'
-            {...controller(name, {
-                required:false,
-            }
-            )}>
-        </input>
-
-        <span 
+            <span 
                 className={`
-                    ${checked ? "transparent" : "bg-primary/25"}
+                    bg-primary/25
                     h-14
                     mr-4
                     aspect-square
@@ -74,6 +46,6 @@ export default function CheckItem(props: checkActivity){
                     </Image>
                 </span>
             {(text)}
-        </label>
+        </li>
     )
 }

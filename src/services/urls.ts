@@ -8,6 +8,15 @@ export const UserUrl = {
     GET_USER_ME: `${prefix}user/me`,
     MAILER: `${prefix}mailer`,
 
+    GET_MISSION_DATA: `${prefix}mission`,
+    GET_MISSIONS: `${prefix}mission`,
+    POST_MISSION_DATA: `${prefix}mission`,
+    PUT_MISSION_DATA: `${prefix}mission`,
+    PUT_MISSION_STATE: `${prefix}mission/change-state`,
+    PUT_MISSION_BRAND: `${prefix}mission/brand-request`,
+    PUT_MISSION_ACCEPT: `${prefix}mission/accept-mission`,
+    DELETE_MISSION: `${prefix}mission/delete-mission`,
+
     POST_AUTH_LOGIN: `${prefix}auth/login`,
     GET_AUTH_ME: `${prefix}auth/me`,
     PUT_AUTH_PASSWORD_RECOVERY: `${prefix}auth/password-recovery`,
