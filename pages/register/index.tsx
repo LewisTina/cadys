@@ -6,6 +6,7 @@ import ConnectWithGoogle from '@/src/components/auth/googleButton'
 import RegisterForm from './form'
 import FormDivider from '@/src/components/Form/FormDevider'
 import { useState } from 'react'
+import Layout from '@/src/Layout'
 
 export default function Register(props: any) {
     const {t} = useTranslation('common')
@@ -18,6 +19,7 @@ export default function Register(props: any) {
     ]
     
     return(
+        <Layout title='register'>
         <main 
             className='
                 flex 
@@ -74,5 +76,6 @@ export default function Register(props: any) {
                 img={'/infirmiere-prenant-soin-personne-agee.jpg'}/>
                 
         </main>
+        </Layout>
     )
 }

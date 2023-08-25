@@ -9,6 +9,7 @@ interface postalSet{
     placeholder: string
     controller: any
     require?: any
+    id?: any
     setValue: any
     icon:   string;
     trigger: any
@@ -24,7 +25,8 @@ export default function AutoCompletePostal(props: postalSet) {
         townController,
         setValue,
         icon,
-        trigger
+        trigger,
+        id
     } = props
 
     const {t} = useTranslation('common')
@@ -79,7 +81,7 @@ export default function AutoCompletePostal(props: postalSet) {
             className={`relative block w-[345px] ${isOpen ? " z-10" : ""}`}>
             <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                 <span 
-                    className={`material-icons-outlined text-dark-grey
+                    className={`material-icons-outlined text-dark-grey dark:text-gray-400
                     ${(require != undefined) && (require[name] && `text-light-red`)}`}>{icon}</span>
             </span>
                     
@@ -93,6 +95,7 @@ export default function AutoCompletePostal(props: postalSet) {
                         )}
                     type={"number"} 
                     min ="0"
+                    id={id}
                     autoComplete= "off"
                     placeholder={`${t(placeholder)} ${require ? "*" : ""}`}
                     className={`
@@ -100,7 +103,7 @@ export default function AutoCompletePostal(props: postalSet) {
                     block
                     bg-light-grey/50 dark:bg-black/50
                     border-2 border-dark-grey/20 dark:border-black/20
-                    placeholder:text-dark-grey
+                    placeholder:text-dark-grey dark:placeholder:text-gray-400
                     text-base
                     rounded-xl
                     p-3 pl-12  my-2.5

@@ -1,14 +1,11 @@
 import useTranslation from 'next-translate/useTranslation'
 import { DM_Serif_Display } from 'next/font/google'
 import Image from 'next/image'
-import { useState } from 'react'
-import CheckItem from '../../Form/CheckItem'
 import Link from 'next/link'
-import style from './index.module.scss'
 import FormButton from '../../Form/FormButton'
 import { useRouter } from 'next/router'
-
-const options = ["daily_help", "household", "uo_and_bed", "social_life", "night_assist", "groceries"]
+import { useDataContext } from '@/src/context/GlobalUserDataContext'
+import ShowActivity from '../../Form/showActivity'
 
 const dm_Serif_Display = DM_Serif_Display({
     weight: '400',
@@ -18,6 +15,9 @@ const dm_Serif_Display = DM_Serif_Display({
 export default function Cover(props: any){
     const {t} = useTranslation('common')
     const router = useRouter()
+    const {data} = useDataContext()
+    const activities = data?.activities
+    const locale = router.locale as string
 
     return(
         <div 
@@ -59,11 +59,11 @@ export default function Cover(props: any){
                         py-8
                         `}>
                     {
-                        options?.map((option: string, idx: number) => {
+                        activities?.map((option: any, idx: number) => {
                             return(
-                                <CheckItem 
+                                <ShowActivity 
                                     key={idx} 
-                                    text={t(option)} 
+                                    text={option.title_i18n[locale]} 
                                     imgUrl={`/${idx + 1}.svg`}/>
                             )
                         })

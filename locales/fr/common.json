@@ -2,6 +2,8 @@
     "": "",
     "FAQ": "FAQ",
     "at": "à",
+    "from": "du",
+    "to": "au",
     "and": "et",
     "dark": "Thème sombre",
     "light": "Thème clair",
@@ -17,6 +19,9 @@
     "upload_file": "Charger un fichier",
     "request_error": "Échec de l'opération",
     "bad_request": "Une erreur est survenue",
+    "home": "Accueil",
+    "settings": "Paramètre",
+    "contact_support": "Support client",
 
     "join_our_team": "Rejoignez notre équipe de professionnels",
     "daily_help": "Aide Au Quotidien",

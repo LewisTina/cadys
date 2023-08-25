@@ -7,7 +7,6 @@ import ValidationInput from '@/src/components/Form/ValidationInput';
 import useTranslation from 'next-translate/useTranslation';
 import { useRouter } from 'next/router';
 import FormSelect from '@/src/components/Form/FormSelect';
-import compagnieTypes from '@/company_type.json'
 import FormMultiSelect from '@/src/components/Form/FormMultiSelect';
 import AutoCompletePostal from '@/src/components/Form/PostalInput';
 import { UserService } from '@/src/services';
@@ -15,7 +14,7 @@ import { useMutation } from 'react-query';
 import { useEffect, useState } from 'react';
 import { useOperationStatus } from '@/src/context/OperationStatus';
 import Cookies from 'js-cookie';
-import { hashString } from '@/src/utils/helper';
+import { useDataContext } from '@/src/context/GlobalUserDataContext';
 
 interface RegisterFormProps {
     step: any,
@@ -27,6 +26,11 @@ export default function RegisterForm(props: RegisterFormProps){
     const {step, setStep} = props
     const router = useRouter()
     const {t} = useTranslation('common')
+    const {data} = useDataContext()
+    const activities = data?.activities
+    const legal_status = data?.legal_status
+    const locale = router.locale as string
+
     const { 
         register, 
         handleSubmit, 
@@ -134,9 +138,9 @@ export default function RegisterForm(props: RegisterFormProps){
 
   const onSubmitStep2 = async (bodyData: any) => {
     const PostData = {
-      manager_uuid: "566dad92-1602-4acb-aced-fe421194f85d",
+      manager_uuid: managerId,
       name: bodyData.brand_name,
-      legal_status: "89dd324b-adb0-43ff-97f4-2e77513e912c",
+      legal_status: bodyData.legal_status,
       email_pro: bodyData.email_pro || "",
       siret: bodyData.siret,
       address: {
@@ -146,7 +150,7 @@ export default function RegisterForm(props: RegisterFormProps){
       },
       activities: bodyData.activities,
     }
-    await brandMutation(PostData)
+    //await brandMutation(PostData)
     
     console.log(PostData)
     
@@ -351,7 +355,7 @@ export default function RegisterForm(props: RegisterFormProps){
 
             <FormSelect 
                 controller={register}
-                values={compagnieTypes}
+                values={legal_status}
                 require={errors}
                 name={'legal_status'}
                 icon={'business_center'}
@@ -376,7 +380,7 @@ export default function RegisterForm(props: RegisterFormProps){
             <FormMultiSelect 
                 controller={register}
                 unregister={unregister}
-                values={compagnieTypes}
+                values={activities}
                 name={'activities'}
                 placeholder={'activities'} 
                 setValue={setValue}

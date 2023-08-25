@@ -35,7 +35,7 @@ export default function FormMultiSelect(props: MultiSelectProps)  {
     useEffect(()=>{
       const list: any = []
         values?.map((el: any ) => {
-          list.push({label: `${el.code} | ${el.title_i18n[locale!]}`, value: el.uuid, selected: false})
+          list.push({label: `${el.title_i18n[locale!]}`, value: el.uuid, code: el.code, selected: false})
         })
 
       setFinalList(list)
@@ -45,7 +45,7 @@ export default function FormMultiSelect(props: MultiSelectProps)  {
       const updatedList = [...finalList];
       updatedList[idx] = { ...updatedList[idx], selected: true };
       setFinalList(updatedList);
-      setValue(`${name}.activity${idx}`, e.value)
+      setValue(`${e.code}`, e.value)
         
       trigger([name])
     }
@@ -78,34 +78,36 @@ export default function FormMultiSelect(props: MultiSelectProps)  {
       <>
         <label 
             id="customMultiSelect"
-            className={`relative block w-[345px] ${isOpen ? " z-10" : ""}`}
+            className={`
+            relative
+            w-full
+            block
+            bg-light-grey/50 dark:bg-black/50
+            border-2 border-dark-grey/20 dark:border-black/20
+            text-base
+            rounded-xl
+            p-3 pr-12  my-2.5
+            cursor-pointer
+            outline-none
+            ${(require != undefined) && (require[name] && `ring-2 ring-light-red/20 border-light-red/50`)}
+            ${isOpen ? "outline-none ring-2 ring-primary/20 border-primary/50 dark:ring-primary/50 dark:border-primary/70" : ""}
+            
+            `}
             onClick={()=>{setIsOpen(!isOpen)}}>
                     
-            <input
+            <span
                     id={id}
-                    type={"text"} 
-                    min ="0"
-                    disabled
+                    className="
+                    text-dark-grey dark:text-gray-400
+                    bg-transparent
+                    pointer-events-none"
                     placeholder={`${t(placeholder)} ${require ? "*" : ""}`}
-                    className={`
-                    w-full
-                    block
-                    bg-light-grey/50 dark:bg-black/50
-                    border-2 border-dark-grey/20 dark:border-black/20
-                    placeholder:text-dark-grey
-                    text-base
-                    rounded-xl
-                    p-3 pr-12  my-2.5
-                    cursor-pointer
-                    focus:outline-none
-                    ${(require != undefined) && (require[name] && `ring-2 ring-light-red/20 border-light-red/50`)}
-                    ${isOpen ? "ring-2 ring-primary/20 border-primary/50" : ""}
-                  dark:focus:ring-primary/50 dark:focus:border-primary/70
-                    `}
-                    />
+                    >
+                      {t(placeholder)} {require ? "*" : ""}
+            </span>
 
                 
-            <span className="absolute top-3 right-0 flex items-center pr-3 pt-3 cursor-pointer">
+            <span className="absolute top-0 right-0 flex items-center pr-3 pt-3 cursor-pointer">
                 <span 
                     className={`material-icons-outlined text-dark-grey`}>{"keyboard_arrow_down"}</span>
             </span>
@@ -113,7 +115,7 @@ export default function FormMultiSelect(props: MultiSelectProps)  {
 
             {
               isOpen &&
-              <div className="absolute bottom-16 shadow-lg bg-white dark:bg-darkest rounded-xl max-h-96 overflow-auto divide-y">
+              <div className="absolute left-0 bottom-16 shadow-lg w-full bg-white dark:bg-darkest rounded-xl max-h-96 overflow-auto divide-y">
                 {
                     finalList.map((el: any, idx: number) => {
                     return (
