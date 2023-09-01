@@ -79,6 +79,7 @@ export default function FormInputField(props: FieldProps)  {
                     text-base
                     rounded-xl
                     p-3 pl-12  my-2.5
+                    ${id == "city" ? "capitalize" : ""}
                     ${(require != undefined) && (require[name] && `ring-2 ring-light-red/20 border-light-red/50`)}
                     focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/50
                   dark:focus:ring-primary/50 dark:focus:border-primary/70

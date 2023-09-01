@@ -92,6 +92,19 @@ export const getStaticProps: GetStaticProps = async () => {
             }
           },
 
+          UserUpdate: {
+            properties:{
+              first_name: 
+                {type: "string"},
+              last_name:
+                {type: "string"},
+              phone:
+                {type: "string"},
+              sex:
+                {type: "string"},
+            }
+          },
+
           Validation: {
             properties: {
               code:
@@ -108,6 +121,16 @@ export const getStaticProps: GetStaticProps = async () => {
               email: {
                 type: "string",
                 format: "email"
+              },
+              new_password:
+              {type: "string"},
+            }
+          },
+
+          ChangePassword: {
+            properties: {
+              old_password: {
+                type: "string",
               },
               new_password:
               {type: "string"},
@@ -162,6 +185,24 @@ export const getStaticProps: GetStaticProps = async () => {
                 {type: "string"},
             }
           },
+          
+          BrandUpdate: {
+            properties:{
+              email_pro: {
+                type: "string",
+                format: "email"},
+              name:
+                {type: "string"},
+              siret:
+                {type: "string"},
+              activities:
+                {type: "object"},
+              address:
+                {$ref: '#/components/schemas/address'},
+              legal_status:
+                {type: "string"},
+            }
+          },
 
           legal_status: {
             properties:{
@@ -192,6 +233,10 @@ export const getStaticProps: GetStaticProps = async () => {
                 {$ref: "#/components/schemas/legal_status"},
             }
             
+          },
+
+          Listing: {
+            type: "object"
           },
 
           userDisplay: {

@@ -81,7 +81,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       return res.status(404).json({message: 'mission_not_exist'})
     }
 
-    if (company.uuid != mission.brand_uuid) {
+    if (company.company_uuid != mission.brand_uuid) {
       return res.status(403).json({message: 'you_not_allow_to_accept_this_mission'})
     }
 

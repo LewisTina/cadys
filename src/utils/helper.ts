@@ -37,6 +37,18 @@ export function hashString(data: string) {
   return hash.digest('hex');
 }
 
+export function filterNonNullFields(jsonObj: any): { [key: string]: any } {
+  const filteredObj: { [key: string]: any } = {};
+
+  for (const key in jsonObj) {
+    if (jsonObj.hasOwnProperty(key) && jsonObj[key] !== null  && jsonObj[key] !== undefined  && jsonObj[key] !== "") {
+      filteredObj[key] = jsonObj[key];
+    }
+  }
+
+  return filteredObj;
+}
+
 
 /* function isValidPhoneNumber(number: string): string | false {
   try {
@@ -162,4 +174,11 @@ export function getDocTypeValue(type: models.DocumentType): string {
   return typeValues[type];
 } */
 
-// Rest of the functions
+export function getElementByCode(arr: any, searchKey: any) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].code === searchKey) {
+      return i;
+    }
+  }
+  return null;
+}

@@ -11,6 +11,11 @@ class UserService {
   static getFiles = (filename: any) =>
     BaseService.getRequest(filename, false);
 
+  static getCompanyMissions = (data?: any) =>
+    BaseService.getRequest(data ? `${UserUrl.GET_BRAND_MISSIONS}?state=${data.state}` : `${UserUrl.GET_BRAND_MISSIONS}`, true);
+
+  static getMissionByUuid = (uuid: string) =>
+    BaseService.getRequest(`${UserUrl.GET_MISSION}?uuid=${uuid}`, true);
 
 
   static postLoginData = (data: any) =>
@@ -45,8 +50,17 @@ class UserService {
   static putManagerData = (data: any) =>
     BaseService.putRequest(UserUrl.PUT_USERS_ME, data, true);
 
-  static putPassword = (data: any) =>
+  static putPasswordData = (data: any) =>
     BaseService.putRequest(UserUrl.PUT_USERS_PASSWORD, data, true);
+
+  static putBrandData = (data: any) =>
+    BaseService.putRequest(UserUrl.PUT_BRAND_DATA, data, true);
+
+  static putAcceptMission = (data: any) =>
+    BaseService.putRequest(UserUrl.PUT_MISSION_ACCEPT, data, true);
+
+  static putMissionState = (data: any) =>
+    BaseService.putRequest(UserUrl.PUT_MISSION_STATE, data, true);
 
 }
 

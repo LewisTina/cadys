@@ -29,16 +29,16 @@ export default function OperationSate(props: operationSate) {
     const dataElement = getStatusElements()
 
     return (
-        <div className={`${style.OperationSate} flex justify-between text-base bg-white shadow-black`} 
+        <div className={`${style.OperationSate} flex justify-between py-3 px-4 rounded-full text-base`} 
             style={{
                 border: `2px solid rgba(var(--${dataElement?.theme}), 1)`,
-                backgroundImage: `linear-gradient(-35deg, transparent 20%, rgba(var(--${dataElement?.theme}), 0.6) 200%)`
+                backgroundColor: `rgba(var(--${dataElement?.theme}), 0.4)`
                 }}>
-                <i className={`material-icons bg-${dataElement?.theme}-400`}>info</i>
+                <i style={{
+                color: `rgba(var(--${dataElement?.theme}), 1)`,
+                }}
+                className={`material-icons`}>info</i>
                 <div className={`${style.message}`}>
-                    <span className="text-xl font-bold">
-                        {t(dataElement?.label!)}
-                    </span> <br />
                     <span>
                         {message}
                     </span>

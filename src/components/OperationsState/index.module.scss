@@ -1,16 +1,14 @@
 .OperationSate{
+    font-family: Roboto, sans-serif;
     position: fixed;
     width: 345px;
     max-width: 345px;
     bottom: 1.25em;
-    left: 1.25em;
-    animation: entries 1s linear;
+    right: 1.25em;
     animation: entries 1s linear;
     z-index: 99999999;
     text-align: left;
-    padding: 1em;
     align-items: center;
-    border-radius: 1.5em;
 }
 
 .message{

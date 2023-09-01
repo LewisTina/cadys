@@ -10,11 +10,10 @@ const adminKey = process.env.MIGRATION_ADMIN_KEY
  * @swagger
  * /api/migration/activities:
  *   post:
- *     summary: Login user
- *     description: Sign in with email and password
+ *     summary: Migrate activities into data base
  *     tags: ["migrations"]
  *     requestBody:
- *       description: Login user with email
+ *       description: Migrate activities into data base
  *       required: true
  *       content:
  *         application/json:

@@ -1,30 +1,31 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { TokenRequiredDependence, comparePasswords, hashPassword, verifyToken } from '../../security';
-import { User } from '../../models/user';
+import { TokenRequiredDependence, verifyToken } from '../security';
+import { Company, Manager } from '../models/company';
+import { filterNonNullFields } from '@/src/utils/helper';
 
 /**
  * @swagger
- * /api/users/change-password:
+ * /api/company:
  *   put:
- *     summary: Change user password
- *     description: Change user password
+ *     summary: Update company data
+ *     description: Update company data
  *     security:
  *       - TokenRequired: []
- *     tags: ["users"]
+ *     tags: ["company"]
  *     requestBody:
  *       description: brand registration data
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/ChangePassword'
+ *             $ref: '#/components/schemas/BrandUpdate'
  *     responses:
  *       200:
  *         description: Success
  *         content:
- *          application/json:
- *           schema:
- *             $ref: '#/components/schemas/Message'
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Message'
  *       401:
  *         description: Unauthorized
  *         content:
@@ -38,7 +39,7 @@ import { User } from '../../models/user';
  *           schema:
  *             $ref: '#/components/schemas/Message'
  *       404:
- *         description: Not authorized
+ *         description: Not found
  *         content:
  *          application/json:
  *           schema:
@@ -48,7 +49,7 @@ import { User } from '../../models/user';
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'PUT') {
     const token = req.headers.authorization?.split(' ')[1] as string;
-    const {old_password, new_password} = req.body
+    const baseData = req.body
 
 
     if (!token) {
@@ -62,31 +63,26 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     try {
+
     const user_uuid = decodedToken.id
 
-    
-    const user = await User.findOne({ where: { uuid: user_uuid } });
-    
-    if (!user) {
-      return res.status(404).json({ detail: 'user_not_exist' });
-    }
+    const manager = await Manager.findOne({ where: { manager_uuid: user_uuid } });
+    if (!manager) {
+        return res.status(404).json({ detail: 'user_email_conflict' });
+      }
 
-    const isPasswordMatch = await comparePasswords(old_password, user.password_hash)
+    const cleanData = filterNonNullFields(baseData)
 
-    if (!isPasswordMatch){
-      return res.status(400).json({detail: 'old_password_not_match'})
-    }
+    await Company.update(cleanData, { where: { uuid: manager.company_uuid } });
 
-    const password_hash= (await hashPassword(new_password as string)).toString()
-
-    await User.update({password_hash: password_hash}, {where: {uuid: user_uuid}})
-
-    return res.status(200).json({ message: 'password_update_successfully' });
+    return res.status(200).json({ message: 'company_update_successfully' });
     } catch (error) {
       console.error(error);
       return res.status(500).json({ message: 'error_updating_user' });
     }
+
   }
+
 
   return res.status(405).json({ message: 'method_not_allowed' });
 };

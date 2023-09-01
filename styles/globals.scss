@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp');
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,8 +12,9 @@
   --background-dark: 7, 20, 21;
   --red : 254, 29, 29;
   --orange : 255, 95, 0;
-  --yellow : 255, 230, 0;
+  --yellow : 255, 180, 10;
   --green : 4, 181, 0;
+  --blue : 0, 122, 255;
   --light_grey : 243, 243, 243;
   --dark_grey : 82, 82, 82;
   --primary: 50, 205, 50;

@@ -7,6 +7,7 @@ import Address from '../models/address';
 import Mailer from '../mailer';
 import { UserRoles } from '../models/user';
 import moment from 'moment';
+import { Activities } from '../models/activites';
 
 /**
  * @swagger
@@ -167,6 +168,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     let result = undefined
+    let formattedResult= undefined
   
     if (!uuid) {
       if (userRole) {
@@ -175,21 +177,89 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         }
 
         else {
-          result = await Mission.findAll();
+          result = await Mission.findAll({order: [['updatedAt', 'DESC']],});
+
+          if (!!result) {
+            let subResult: any = []
+            for(const line of result) {
+              const activities = line.activities
+              let formattedActivities: any = []
+              const address = await Address.findOne({ 
+                where: { uuid: line.intervention_address },
+                attributes: ['zip_code', 'city', 'address_title'], 
+              });
+      
+              if(!!activities){
+                for(const option of activities) {
+                  if(option){
+                    const activityByUuid = await Activities.findOne({ 
+                      where: { uuid: option } 
+                    });
+        
+                    if(!!activityByUuid) {
+                      await formattedActivities.push(activityByUuid)
+                    }
+                  }
+                }
+              }
+      
+              await subResult.push(
+                {
+                  uuid: line.uuid,
+                  intervention_date_start: line.intervention_date_start,
+                  intervention_date_end: line.intervention_date_end,
+                  state: line.state,
+                  activities: formattedActivities,
+                  intervention_address: address
+                })
+
+              formattedResult = subResult
+          }}
         }
       }
     }
 
     else {
-      result = await Mission.findOne({ where: { uuid: uuid } });
+      result = await Mission.findOne({ 
+        attributes: ['uuid', 'intervention_date_start', 'intervention_date_end', 'state', 'activities', 'intervention_address'],
+        where: { uuid: uuid } 
+      });
+
+      if (!!result) {
+          const activities = result.activities
+          let formattedActivities: any = []
+          const address = await Address.findOne({ 
+            where: { uuid: result.intervention_address },
+            attributes: ['zip_code', 'city', 'address_title'], 
+          });
+  
+          if(!!activities){
+            for(const option of activities) {
+              if(option){
+                const activityByUuid = await Activities.findOne({ 
+                  where: { uuid: option } 
+                });
+    
+                if(!!activityByUuid) {
+                  await formattedActivities.push(activityByUuid)
+                }
+              }
+            }
+          }
+  
+          formattedResult = {
+              uuid: result.uuid,
+              intervention_date_start: result.intervention_date_start,
+              intervention_date_end: result.intervention_date_end,
+              state: result.state,
+              activities: formattedActivities,
+              intervention_address: address
+            }
+      }
     }
     
 
-    return res.status(200).json(
-      {
-        result
-      }
-    )
+    return res.status(200).json(formattedResult)
 
   }
 

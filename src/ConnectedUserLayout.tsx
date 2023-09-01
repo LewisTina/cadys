@@ -9,6 +9,7 @@ import { useDataContext } from './context/GlobalUserDataContext';
 import { useQuery } from 'react-query';
 import Head from 'next/head'
 import { useUserSession } from './context/UserSession';
+import SideBar from './components/backOffice/SideBar';
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -25,6 +26,7 @@ const ConnectedUserLayout = (props: LayoutProps) => {
     const {t} = useTranslation("common")
     const router = useRouter();
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [authData, setAuthData] = useState<undefined | any>(undefined)
 
     const getGlobal = () => 
     UserService.getDefaultData().then(async (res: any) => {
@@ -35,19 +37,31 @@ const ConnectedUserLayout = (props: LayoutProps) => {
     const getUser = () =>
     UserService.getUserData().then(async (res: any) => {
       let data = await res.json();
+      setAuthData(res)
       return data
   });
 
     const { 
       data: userSessionData, 
+      isSuccess: userSuccess,
     } = useQuery<any>('userSessionData', getUser)
+
+    useEffect(() => {
+      if (userSuccess && !!authData) {
+        if (authData.status == 401 ){
+              Cookies.remove("userToken")
+              router.replace ("/login")
+            }
+      }}, [authData, router, userSuccess])
     
     const { 
       data: globalData, 
     } = useQuery<any>('globalData', getGlobal)
     
     const { setData: setGlobalUserData } = useDataContext();
-    const { setData: setUserData } = useUserSession();
+    const { data: userData, setData: setUserData } = useUserSession();
+    const company = userData?.company
+    const user = userData?.manager
 
     useEffect(() => {
       setGlobalUserData(globalData)
@@ -57,12 +71,9 @@ const ConnectedUserLayout = (props: LayoutProps) => {
     useEffect(() => {
         const token = Cookies.get('userToken'); 
     
-          //check if the component is protected and if the token not exist
         if (!token) {
-          //if true redirect to authentication page
           router.replace(`/login?redirect=${router.asPath}`);
         } else {
-          //else open the page
           setIsAuthenticated(true);
         }
       },[router]);
@@ -83,7 +94,34 @@ const ConnectedUserLayout = (props: LayoutProps) => {
               <meta charSet="utf-8" />
               <meta name="viewport" content="initial-scale=1.0, width=device-width,"/>
           </Head>
-                {children}
+          
+          <main className="h-screen w-full relative flex">
+                <SideBar/>
+                <div className="w-full max-w-[calc(100%-345px)] h-full overflow-auto flex flex-col items-center px-10  text-dark-grey dark:text-gray-400">
+                  <div className="
+                        w-full
+                        h-auto
+                        max-w-[1535px]
+                        flex flex-col">
+
+                          <div className="my-10 flex flex-col">
+                            <span className="text-4xl font-bold">
+                                {company?.name}
+                            </span>
+                            <span className="text-base">
+                                {user?.first_name} {user?.last_name}
+                            </span>
+                          </div>
+                          
+
+                          <div className="">
+                            {children}
+                          </div>
+
+                  </div>
+
+                </div>
+            </main>
       </main>
 );
 }
