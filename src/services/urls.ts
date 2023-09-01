@@ -2,14 +2,14 @@ export const prefix = '/api/';
 
 export const UserUrl = {
     FETCH_DEFAULT_DATA: `${prefix}users/default/data`,
-    PUT_USERS_PASSWORD: `${prefix}users/password`,
+    PUT_USERS_PASSWORD: `${prefix}users/change-password`,
     PUT_USERS_ME: `${prefix}users/me`,
 
-    GET_USER_ME: `${prefix}user/me`,
+    GET_USER_ME: `${prefix}users/me`,
     MAILER: `${prefix}mailer`,
 
     GET_MISSION_DATA: `${prefix}mission`,
-    GET_MISSIONS: `${prefix}mission`,
+    GET_MISSION: `${prefix}mission`,
     POST_MISSION_DATA: `${prefix}mission`,
     PUT_MISSION_DATA: `${prefix}mission`,
     PUT_MISSION_STATE: `${prefix}mission/change-state`,
@@ -27,5 +27,8 @@ export const UserUrl = {
     PUT_REGISTER_VALIDATE: `${prefix}auth/register/validation-step`,
     PUT_REGISTER_RESEND_C: `${prefix}auth/register/validation-resend-code`,
     POST_BRAND_DATA: `${prefix}auth/register/last-step`,
+
+    PUT_BRAND_DATA: `${prefix}company`,
+    GET_BRAND_MISSIONS: `${prefix}company/missions`,
 
 };

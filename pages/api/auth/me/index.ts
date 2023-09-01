@@ -78,7 +78,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         attributes: ['zip_code', 'city', 'address_title'], 
       });
 
-      if (company?.activities) {
+    if (company?.activities) {
         let savedActivities: any = [];
         for (const activity of Object.keys(company?.activities)) {
           const activityByCode = await Activities.findOne({ where: { code: activity } });

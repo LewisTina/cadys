@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { getElementByCode } from "@/src/utils/helper";
 import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -12,6 +14,7 @@ interface MultiSelectProps {
     trigger: any
     require?: any
     unregister: any
+    getValues: any
 }
 
 export default function FormMultiSelect(props: MultiSelectProps)  {
@@ -30,6 +33,7 @@ export default function FormMultiSelect(props: MultiSelectProps)  {
         trigger,
         require,
         unregister,
+        getValues,
     } = props;
 
     useEffect(()=>{
@@ -45,21 +49,34 @@ export default function FormMultiSelect(props: MultiSelectProps)  {
       const updatedList = [...finalList];
       updatedList[idx] = { ...updatedList[idx], selected: true };
       setFinalList(updatedList);
-      setValue(`${e.code}`, e.value)
+      setValue(`${name}.${e.code}`, e.value)
         
       trigger([name])
     }
 
-    const removeItem = (idx: number) => {
+    const formData = getValues(name)
+
+    useEffect(() => {
+      if(formData){
+        const updatedList = [...finalList];
+        Object.keys(formData).map((key:string) => {
+          const id = getElementByCode(finalList, key)
+          updatedList[id!] = { ...updatedList[id!], selected: true };
+            trigger([name])
+        })
+        setFinalList(updatedList);
+      }
+    }, [formData])
+
+
+    const removeItem = (code: string, idx: number) => {
       const updatedList = [...finalList];
       updatedList[idx] = { ...updatedList[idx], selected: false };
       setFinalList(updatedList);
-      unregister(`${name}.${idx}`)
+      unregister(`${name}.${code}`)
         
       trigger([name])
     };
-
-    console.log(finalList);
 
 
     useEffect(()=> {
@@ -135,7 +152,7 @@ export default function FormMultiSelect(props: MultiSelectProps)  {
                 finalList.map((el: any, idx: number) => {
                   if(el.selected) {
                   return(
-                    <SelectedChips key={idx} text={el.label} action={() => {removeItem(idx)}}/>
+                    <SelectedChips key={idx} text={el.label} action={() => {removeItem(el.code, idx)}}/>
                   )
                   }
             })

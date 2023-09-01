@@ -384,6 +384,7 @@ export default function RegisterForm(props: RegisterFormProps){
                 name={'activities'}
                 placeholder={'activities'} 
                 setValue={setValue}
+                getValues={getValues}
                 trigger={trigger}/>
 
             <AutoCompletePostal 

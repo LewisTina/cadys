@@ -20,7 +20,7 @@ export default function ShowActivity(props: any){
                 flex
                 items-center
                 cursor-default
-                p-2 pr-4 mr-4 mb-4 
+                p-2 pr-4 mx-2 my-2 
                 transition
                 duration-500
                 rounded-3xl`}>

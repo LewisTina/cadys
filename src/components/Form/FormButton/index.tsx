@@ -19,7 +19,7 @@ export default function FormButton(props: buttonProps){
         <button 
             type={type}
             onClick={action}
-            disabled={disable || isLoading}
+            disabled={disable}
             className={`
                 ${style.formButton}
                 flex
