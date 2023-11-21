@@ -1,0 +1,47 @@
+.OperationSate{
+    font-family: Roboto, sans-serif;
+    position: fixed;
+    width: 345px;
+    max-width: 345px;
+    bottom: 1.25em;
+    right: 1.25em;
+    animation: entries 1s linear;
+    z-index: 99999999;
+    text-align: left;
+    align-items: center;
+}
+
+.message{
+    width:100%;
+    padding: 0 1em ;
+
+    span{
+        text-transform: capitalize;
+    }
+}
+
+.close{
+    aspect-ratio: 1/1 !important;
+    height: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 50%;
+ 
+}
+
+.close:hover{
+    background-color: rgba($color: #50555C, $alpha: 0.5);
+}
+
+@keyframes entries {
+    from {
+        bottom: - 4em;
+    }
+
+    to {
+        bottom: 1.5em
+    }
+}

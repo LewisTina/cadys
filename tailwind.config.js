@@ -7,6 +7,19 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
+    
+    screens: {
+      '2xl': {'max': '1535px'},
+
+      'xl': {'max': '1279px'},
+
+      'lg': {'max': '1023px'},
+
+      'md': {'max': '767px'},
+
+      'sm': {'max': '639px'},
+    },
+
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -15,8 +28,13 @@ module.exports = {
       },
 
       colors: {
-        'darkest-green': 'rgb(var(--background-dark))',
-        'primary': 'rgb(50, 205, 50)'
+        'darkest': "rgb(29, 27, 27)",
+        'primary': 'rgb(50, 205, 50)',
+        'deep-green': 'rgba(45, 160, 44)',
+        'primary-dark': 'rgb(34, 71, 33)',
+        'dark-grey': 'rgb(82, 82, 82)',
+        'light-grey': 'rgb(243, 243, 243)',
+        'light-red': 'rgb(255, 0, 0)',
       }
     },
   },
