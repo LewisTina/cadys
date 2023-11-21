@@ -108,5 +108,21 @@
     "offer_description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, et quae! Aperiam hic ut placeat, inventore expedita aut perferendis necessitatibus sit facere eum vel animi similique accusamus, maiores eius labore!",
 
     "join_qualified_team": "Rejoignez une équipe qualifiée",
-    "become_partner_question_answer": "Vous proposez des services ?\nDevenez partenaire."
+    "become_partner_question_answer": "Vous proposez des services ?\nDevenez partenaire.",
+
+    "mission_in_progress": "Missions en cours",
+    "disponibility": "disponibilité",
+    "history": "Historique",
+    "cadys_news": "Nouveautés Cadys",
+    "proposed_by": "proposée par",
+
+    "PENDING": "En attente",
+    "IN_PROGRESS": "En cours",
+    "DONE": "Terminée",
+    "CANCELED": "Annulée",
+    "REJECTED": "Rejétée",
+
+    "accept":"Accepter",
+    "reject":"Rejeter",
+    "decline":"Refuser"
 }

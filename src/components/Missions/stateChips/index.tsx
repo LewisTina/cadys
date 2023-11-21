@@ -41,7 +41,7 @@ export default function StateChips(props: state) {
                 {dataElement?.icon}
             </span>
 
-            <span className="flex ml-2 text-xs text-black font-medium">
+            <span className="flex ml-2 text-xs text-black dark:text-white font-medium">
                 {t(state)}
             </span>
             </div>

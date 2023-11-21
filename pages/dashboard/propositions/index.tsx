@@ -105,7 +105,7 @@ export default function Propositions(props: any) {
 
                 {
                     !!reference && !!missionData ? 
-                    <div className="border-2 p-4 m-2 w-[450px] flex flex-col items-center bg-white dark:bg-black rounded-xl shadow-sm">
+                    <div className="border-2 dark:border-black p-4 my-2 mx-6 w-[450px] flex flex-col items-center bg-white dark:bg-black/50 rounded-xl shadow-sm">
                         <div className="h-16 my-4 aspect-square rounded-full overflow-hidden">
                                 <Image 
                                     src={'/logo_cadis.svg'} 
