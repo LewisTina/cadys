@@ -6,14 +6,28 @@ import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import SwitchTheme from "../../core/SwitchTheme";
+import { UserService } from "@/src/services";
+import { useQuery } from "react-query";
 
 export default function SideBar (props: any) {
     const { data: userData } = useUserSession();
     const {t} = useTranslation('common')
-    const router = useRouter()
     const user = userData?.manager
     const avatarUrl = user?.avatar_id ? (`/Memoji/Memoji-${user?.avatar_id}.png`) : (user?.sex == 'F' ? `/Memoji/Memoji-11.png` : `/Memoji/Memoji-10.png`)
 
+    const getMission = (data: any) => 
+    UserService.getCompanyMissions(data).then(async (res: any) => {
+        let data = await res.json();
+        return data
+    });
+    
+    const {
+       data: missionsData, 
+       isSuccess: missionsSuccess,
+    } = useQuery('PENDING_MISSIONS', () => getMission({state: 'PENDING'}))
+
+    const pendingCounter = missionsData?.length
+    
     return (
        <div className={`${style.sideBar} relative h-screen w-[345px]`}>
             <div 
@@ -49,7 +63,7 @@ export default function SideBar (props: any) {
                             <span className="capitalize mx-3">
                                 {t('main')}
                             </span>
-                            <SideBarLink path={"/dashboard/propositions"} label={"proposition"} icon={"flash_on"} notification notificationCount={10}/>
+                            <SideBarLink path={"/dashboard/propositions"} label={"proposition"} icon={"flash_on"} notification notificationCount={pendingCounter}/>
                             <SideBarLink path={"/dashboard/missions"} label={"mission_in_progress"} icon={"business_center"}/>
                             <SideBarLink path={"/dashboard/disponibility"} label={"disponibility"} icon={"calendar_month"}/>
                         </div>
@@ -67,12 +81,6 @@ export default function SideBar (props: any) {
                         <div className="">
                             <SideBarLink path={"/dashboard/settings"} label={"settings"} icon={"settings"}/>
                             <SideBarLink path={"mailto:contact@cadys.fr"} label={"contact_support"} icon={"support_agent"}/>
-                        </div>
-
-                        <div className="my-10">
-                            <span className="capitalize mx-3">
-                                {t('preferences')}
-                            </span>
                         </div>
 
                         <div className="w-full mt-4">

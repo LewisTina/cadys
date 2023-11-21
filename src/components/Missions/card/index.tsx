@@ -42,7 +42,7 @@ export default function MissionCard(props: Mission) {
         const {text} = props
         return (
           <div className="mr-2 px-2 py-1 flex justify-between items-center bg-gray-400/20 border-2 border-gray-400/50 rounded-md overflow-hidden">
-            <span className=" text-sm font-medium text-ellipsis text-black inline-block whitespace-nowrap overflow-hidden">
+            <span className=" text-sm font-medium text-ellipsis text-black dark:text-white inline-block whitespace-nowrap overflow-hidden">
               {text}
             </span>
                       
@@ -57,7 +57,7 @@ export default function MissionCard(props: Mission) {
             className={`
             ${reference == uuid ? 'ring-2 ring-primary/20 border-primary/50' : ''}
             ${clickable ? 'cursor-pointer' : ''}
-            border-2 p-4 m-2 rounded-xl divide-y-2 shadow-sm w-full
+            border-2 dark:border-gray-700 dark:divide-gray-700 dark:bg-black/50 p-4 m-2 rounded-xl divide-y-2 shadow-sm w-full
             `}
             onClick={()=>{
                 clickable && 
