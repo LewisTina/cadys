@@ -1,0 +1,42 @@
+[
+    {
+        "title_i18n": {
+            "fr": "Entreprise Individuelle",
+            "en": "Sole proprietorship"
+        },
+        "uuid": "Test125",
+        "code": "EI"
+    },
+    {
+        "title_i18n": {
+            "fr": "Entreprise Unipersonnelle à Responsabilité limitée",
+            "en": "One-man business with limited liability"
+        },
+        "uuid": "Test126",
+        "code": "EURL"
+    },
+    {
+        "title_i18n": {
+            "fr": "Société à Responsabilité limitée",
+            "en": "Limited liability company"
+        },
+        "uuid": "Test127",
+        "code": "SARL"
+    },
+    {
+        "title_i18n": {
+            "fr": "Société par actions simplifiée",
+            "en": "Simplified joint stock company"
+        },
+        "uuid": "Test128",
+        "code": "SAS"
+    },
+    {
+        "title_i18n": {
+            "fr": "Société Anonyme",
+            "en": "Limited company"
+        },
+        "uuid": "Test129",
+        "code": "SA"
+    }
+]

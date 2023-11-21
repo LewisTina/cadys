@@ -1,0 +1,23 @@
+[
+    {
+        "code": "M",
+        "title_i18n": {
+            "fr": "Masculin",
+            "en": "Male"
+        }
+    },
+    {
+        "code": "F",
+        "title_i18n": {
+            "fr": "Feminin",
+            "en": "Female"
+        }
+    },
+    {
+        "code": "O",
+        "title_i18n": {
+            "fr": "Autre",
+            "en": "Other"
+        }
+    }
+]

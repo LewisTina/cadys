@@ -1,0 +1,44 @@
+[
+    {
+        "code": "Activity230801",
+        "title_i18n": {
+            "fr": "Aide Au Quotidien",
+            "en": "Daily Help"
+        }
+    },
+    {
+        "code": "Activity230802",
+        "title_i18n": {
+            "fr": "Courses / Repas",
+            "en": "Groceries / Meals"
+        }
+    },
+    {
+        "code": "Activity230803",
+        "title_i18n": {
+            "fr": "Compagnie et vie sociale",
+            "en": "Companionship and Social Life"
+        }
+    },
+    {
+        "code": "Activity230804",
+        "title_i18n": {
+            "fr": "Présence de nuit",
+            "en": "Night Presence"
+        }
+    },
+    {
+        "code": "Activity230805",
+        "title_i18n": {
+            "fr": "Ménage",
+            "en": "Household Chores"
+        }
+    },
+    {
+        "code": "Activity230806",
+        "title_i18n": {
+            "fr": "Lever/Coucher",
+            "en": "Wake Up/Bedtime"
+        }
+    }
+]

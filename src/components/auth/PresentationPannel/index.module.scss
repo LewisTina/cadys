@@ -1,0 +1,24 @@
+.presentation{
+}
+
+.presentation::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.70);
+    z-index: 1;
+  }
+
+.title{
+  font-size: calc(40px + 16 * (100vw - 32rem) / 920);
+}
+
+.logo{
+  min-width: 5.5em;
+  width: 5.5em;
+  height: auto;
+  aspect-ratio: 1/1;
+}
