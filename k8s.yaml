@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Cadys-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: Cadys
+  template:
+    metadata:
+      labels:
+        app: Cadys
+    spec:
+      containers:
+        - name: Cadys-container
+          image: Cadys-app:latest
+          ports:
+            - containerPort: 3000
+            
+          # Bloc de sécurité à analyser
+          securityContext:
+            runAsNonRoot: false # Vérification de la remontée de cette vulnérabilité par le git Action
+            allowPrivilegeEscalation: true
