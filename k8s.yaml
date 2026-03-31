@@ -17,8 +17,8 @@ spec:
           image: Cadys-app:latest
           ports:
             - containerPort: 3000
-            
+
           # Bloc de sécurité à analyser
           securityContext:
-            runAsNonRoot: false # Vérification de la remontée de cette vulnérabilité par le git Action
+            runAsNonRoot: true # Vérification de la remontée de cette vulnérabilité par le git Action
             allowPrivilegeEscalation: true
