@@ -20,5 +20,5 @@ spec:
 
           # Bloc de sécurité à analyser
           securityContext:
-            runAsNonRoot: true # Vérification de la remontée de cette vulnérabilité par le git Action
+            runAsNonRoot: true
             allowPrivilegeEscalation: true

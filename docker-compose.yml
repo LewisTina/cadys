@@ -10,7 +10,7 @@ services:
     environment:
       POSTGRES_USER: new_app
       POSTGRES_PASSWORD: new_app
-    volumes: 
+    volumes:
       - db:/var/lib/postgresql/data
     ports:
       - 5432:5432
@@ -25,7 +25,7 @@ services:
       restart_policy:
         condition: on-failure
       placement:
-        constraints: [ node.role == manager ]
+        constraints: [node.role == manager]
 
   # Adminer
   adminer:
