@@ -21,7 +21,7 @@ jobs:
         with:
           file_or_dir: "."
 
-      # PARTIE 3: Pour le Scan des dépendances (SCA) 
+      # PARTIE 3: Pour le Scan des dépendances (SCA)
       - name: Run Trivy FS scan (Dependencies)
         uses: aquasecurity/trivy-action@master
         with:
