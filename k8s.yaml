@@ -20,5 +20,5 @@ spec:
 
           # Bloc de sécurité à analyser
           securityContext:
-            runAsNonRoot: true
+            runAsNonRoot: False
             allowPrivilegeEscalation: true
