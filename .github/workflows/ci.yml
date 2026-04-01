@@ -42,3 +42,10 @@ jobs:
           format: 'table'
           exit-code: '0'
           severity: 'CRITICAL,HIGH'
+
+      # PARTIE 4: Pour le Scan de Security Policy Kubernetes
+      - name: Run Conftest (K8s Security Policy)
+        uses: instrumenta/conftest-action@master
+        with:
+          policy: policy
+          files: k8s.yaml
