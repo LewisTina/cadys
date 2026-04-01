@@ -12,13 +12,12 @@ spec:
       labels:
         app: Cadys
     spec:
+      # Bloc de sécurité à analyser
+      securityContext:
+        runAsNonRoot: True
+        allowPrivilegeEscalation: true
       containers:
         - name: Cadys-container
           image: Cadys-app:latest
           ports:
             - containerPort: 3000
-
-          # Bloc de sécurité à analyser
-          securityContext:
-            runAsNonRoot: True
-            allowPrivilegeEscalation: true
